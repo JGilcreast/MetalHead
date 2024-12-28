@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PM2110-151K-RC
+D Bourns 150 uH +/-10% Iron Power Inductor, Max SRF:1kHz, 4.3A Idc, 49m Rdc PM2110
+K
+F https://www.bourns.com/pdfs/pm2110_series.pdf
+$ENDCMP
+#
+#End Doc Library

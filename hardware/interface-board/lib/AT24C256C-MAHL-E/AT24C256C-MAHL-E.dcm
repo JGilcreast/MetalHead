@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AT24C256C-MAHL-E
+D EEPROM 1.7-5.5V, 1MHz, Ind Tmp, 8-UDFN
+K
+F http://ww1.microchip.com/downloads/en/devicedoc/atmel-8568-seeprom-at24c256c-datasheet.pdf
+$ENDCMP
+#
+#End Doc Library

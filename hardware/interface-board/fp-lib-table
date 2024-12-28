@@ -1,0 +1,10 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Arduino_MountingHole")(type "KiCad")(uri "${KIPRJMOD}/Arduino_MountingHole.pretty")(options "")(descr ""))
+  (lib (name "AT24C256C-MAHL-E")(type "KiCad")(uri "${KIPRJMOD}/lib/AT24C256C-MAHL-E")(options "")(descr ""))
+  (lib (name "IRFR7540TRPBF")(type "KiCad")(uri "${KIPRJMOD}/lib/IRFR7540TRPBF")(options "")(descr ""))
+  (lib (name "LTV-846S")(type "KiCad")(uri "${KIPRJMOD}/lib/LTV-846S")(options "")(descr ""))
+  (lib (name "PM2110-101K-RC")(type "KiCad")(uri "${KIPRJMOD}/lib/PM2110-101K-RC")(options "")(descr ""))
+  (lib (name "PM2110-151K-RC")(type "KiCad")(uri "${KIPRJMOD}/lib/PM2110-151K-RC")(options "")(descr ""))
+  (lib (name "arduino-library")(type "KiCad")(uri "${KIPRJMOD}/lib/arduino-kicad-library-master/footprints/arduino-library.pretty")(options "")(descr ""))
+)

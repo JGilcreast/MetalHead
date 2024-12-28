@@ -1,0 +1,9 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "IRFR7546TRPBF")(type "KiCad")(uri "${KIPRJMOD}/lib/IRFR7540TRPBF/IRFR7540TRPBF.kicad_sym")(options "")(descr ""))
+  (lib (name "AT24C256C-MAHL-E")(type "KiCad")(uri "${KIPRJMOD}/lib/AT24C256C-MAHL-E/AT24C256C-MAHL-E.kicad_sym")(options "")(descr ""))
+  (lib (name "LTV-846S")(type "KiCad")(uri "${KIPRJMOD}/lib/LTV-846S/LTV-846S.kicad_sym")(options "")(descr ""))
+  (lib (name "PM2110-151K-RC")(type "KiCad")(uri "${KIPRJMOD}/lib/PM2110-151K-RC/PM2110-151K-RC.kicad_sym")(options "")(descr ""))
+  (lib (name "PM2110-101K-RC")(type "KiCad")(uri "${KIPRJMOD}/lib/PM2110-101K-RC/PM2110-101K-RC.kicad_sym")(options "")(descr ""))
+  (lib (name "arduino-library")(type "KiCad")(uri "${KIPRJMOD}/lib/arduino-kicad-library-master/symbols/arduino-library.kicad_sym")(options "")(descr ""))
+)
