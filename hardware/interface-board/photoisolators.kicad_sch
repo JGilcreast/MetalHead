@@ -2541,6 +2541,16 @@
 		)
 		(uuid "676e32bf-921d-41a7-85d9-33c40c29bfff")
 	)
+	(polyline
+		(pts
+			(xy 129.54 49.53) (xy 157.48 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67f9e0d9-f799-401d-8645-d6e25417776f")
+	)
 	(wire
 		(pts
 			(xy 95.25 31.75) (xy 95.25 36.83)
@@ -3690,7 +3700,7 @@
 	)
 	(rectangle
 		(start 129.032 20.828)
-		(end 158.242 50.8)
+		(end 158.242 54.61)
 		(stroke
 			(width 0)
 			(type dash)
@@ -3989,6 +3999,16 @@
 			)
 		)
 		(uuid "3266f1bd-150e-4021-96d2-fc3cb3c58aa8")
+	)
+	(text "1K140: RN73R2ATTD1141D25"
+		(exclude_from_sim no)
+		(at 143.51 51.816 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b5a794a2-4a7e-458b-b57f-f01bc0015727")
 	)
 	(text "Interrupt LEDS:\n2-3V @20mA\nHalf Brightness:\n3V @ 10mA = 200R\n75% Brightness:\n3V @ 15mA = 133.3R"
 		(exclude_from_sim no)

@@ -1,0 +1,16 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+J101,Conn_02x10_Odd_Even,IDC-Header_2x10_P2.54mm_Vertical,127.99,-127.32,90.0,top
+J102,Screw_Terminal_01x05,TerminalBlock_TE_282834-5_1x05_P2.54mm_Horizontal,78.84,-112.0,0.0,top
+J103,Screw_Terminal_01x05,TerminalBlock_TE_282834-5_1x05_P2.54mm_Horizontal,93.09,-112.0,0.0,top
+J104,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,104.84,-112.0,0.0,top
+J105,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,114.13,-112.0,0.0,top
+J106,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,123.42,-112.0,0.0,top
+J107,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,132.63,-112.0,0.0,top
+J108,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,141.88,-112.0,0.0,top
+J109,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,151.13,-112.0,0.0,top
+J110,Screw_Terminal_01x02,TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal,159.11,-112.0,0.0,top
+J111,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,166.96,-112.0,0.0,top
+J112,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,176.21,-112.0,0.0,top
+J113,Screw_Terminal_01x03,TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal,185.46,-112.0,0.0,top
+J114,Screw_Terminal_01x02,TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal,193.44,-112.0,0.0,top
+J115,Barrel_Jack_MountingPin,BarrelJack_Wuerth_6941xx301002,155.67,-122.19,0.0,top

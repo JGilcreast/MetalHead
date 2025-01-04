@@ -1,0 +1,23 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,8.0.6*%
+%TF.CreationDate,2025-01-04T02:04:51-08:00*%
+%TF.ProjectId,MEP-MAXI-85V-1-REV-2-Interface-Board,4d45502d-4d41-4584-992d-3835562d312d,X1*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 8.0.6) date 2025-01-04 02:04:51*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.150000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X62069000Y-31380000D02*
+X222069000Y-31380000D01*
+X222069000Y-159880000D01*
+X62069000Y-159880000D01*
+X62069000Y-31380000D01*
+M02*
