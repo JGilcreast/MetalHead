@@ -10,7 +10,7 @@ Include a block diagram of everything involved and how they are all interconnect
 ### Structures
 List of structures used internally/private and those used for communication.
 #### Receipe
-```
+```C
 struct Receipe {
   ...
   ...
@@ -20,7 +20,7 @@ struct Receipe {
 ## Keypad
 ### Structures
 #### Keypad
-```
+```C
 struct Keypad {
   ...
   ...
