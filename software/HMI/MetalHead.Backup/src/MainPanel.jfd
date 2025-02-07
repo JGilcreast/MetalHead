@@ -1,0 +1,254 @@
+JFDML JFormDesigner: "8.2.4.0.393" Java: "21.0.5" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+			"$columnCount": 2
+			"$rowCount": 3
+		} ) {
+			name: "this"
+			"preferredSize": new java.awt.Dimension( 1200, 720 )
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "tabbedPane1"
+				"preferredSize": new java.awt.Dimension( 800, 720 )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane1"
+					add( new FormComponent( "javax.swing.JTable" ) {
+						name: "table1"
+						"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+							add( new java.util.Vector {
+								add( "" )
+								add( "" )
+								add( "" )
+								add( "" )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( "" )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+						}, new java.util.Vector {
+							add( "Number" )
+							add( "Length" )
+							add( "Angle" )
+							add( "Bend Compensation" )
+							add( "Direction" )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( class java.lang.String )
+							add( class java.lang.String )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( true )
+							add( null )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( new com.jformdesigner.model.SwingTableColumn( new java.lang.Object[ "CW", "CCW" ], 0, 0, 0, true ) )
+						} )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Manual Receipe"
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane2"
+					add( new FormComponent( "javax.swing.JTable" ) {
+						name: "table2"
+						"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+							} )
+						}, new java.util.Vector {
+							add( "ID" )
+							add( "Name" )
+						}, new java.util.Vector {
+							add( class java.lang.String )
+							add( null )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+						} )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Preset Receipe"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+					"$columnCount": 2
+					"$rowCount": 3
+				} ) {
+					name: "panel1"
+				}, new FormLayoutConstraints( null ) {
+					"title": "Diagnostics"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+					"$columnCount": 2
+					"$rowCount": 3
+				} ) {
+					name: "panel2"
+				}, new FormLayoutConstraints( null ) {
+					"title": "Settings"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+					"$columnCount": 2
+					"$rowCount": 3
+				} ) {
+					name: "panel3"
+				}, new FormLayoutConstraints( null ) {
+					"title": "About"
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"fill": 3
+				"anchor": 9
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 1
+				"$rowCount": 8
+			} ) {
+				name: "panel4"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button8"
+					"text": "Pause"
+					"font": new java.awt.Font( "Inter", 1, 16 )
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"preferredSize": new java.awt.Dimension( 125, 75 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button7"
+					"text": "Infeed"
+					"font": new java.awt.Font( "Inter", 1, 16 )
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 1
+					"preferredSize": new java.awt.Dimension( 125, 75 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button6"
+					"text": "Run"
+					"font": new java.awt.Font( "Inter", 1, 16 )
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 2
+					"preferredSize": new java.awt.Dimension( 125, 75 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button5"
+					"text": "Key"
+					"font": new java.awt.Font( "Inter", 1, 16 )
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 3
+					"preferredSize": new java.awt.Dimension( 125, 75 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button4"
+					"text": "Shear"
+					"font": new java.awt.Font( "Inter", 1, 16 )
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 4
+					"preferredSize": new java.awt.Dimension( 125, 75 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button3"
+					"text": "Comp"
+					"font": new java.awt.Font( "Inter", 1, 16 )
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 5
+					"preferredSize": new java.awt.Dimension( 125, 75 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": "Error"
+					"font": new java.awt.Font( "Inter", 1, 16 )
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 6
+					"preferredSize": new java.awt.Dimension( 125, 75 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": "Screen Off"
+					"font": new java.awt.Font( "Inter", 1, 16 )
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 7
+					"useParentLayout": false
+					"preferredSize": new java.awt.Dimension( 125, 75 )
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 1
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
