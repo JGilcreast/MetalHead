@@ -1,0 +1,93 @@
+@startuml
+
+'rectangle I/O{
+'    package Outputs{
+'        json Solenoids{
+'            "SOL_SHEAR_CUT": [],
+'            "SOL_SHEER_HOME": [],
+'            "SOL_TOOL_OUT": [],
+'            "SOL_TOOL_IN": [],
+'            "SOL_FEED_FORWARD": [],
+'            "SOL_FEED_REVERSE": [],
+'            "SOL_HEAD_CW": [],
+'            "SOL_HEAD_CCW": [],
+'            "SOL_HEAD_CCW": [],
+'            "SOL_HEAD_OUT": [],
+'            "SOL_HEAD_IN": []
+'        }
+'    }
+'
+'    package Inputs{
+'        json Buttons{
+'            "AUTO_BUTTON": [],
+'            "SHEAR_BUTTON": []
+'        }
+'        json Encoders{
+'            "ENCODER_FEED_SET": [],
+'            "ENCODER_FEED_RESET": [],
+'            "ENCODER_BEND_SET": [],
+'            "ENCODER_BEND_RESET": []
+'        }
+'        json Proximity{
+'            "PROXIMITY_HEAD_OUT": [],
+'            "PROXIMITY_HEAD_IN": [],
+'            "PROXIMITY_SHEAR_HOME": [],
+'            "PROXIMITY_SHEAR_CUT": [],
+'            "PROXIMITY_TOOL_IN": [],
+'            "PROXIMITY_TOOL_OUT": [],
+'            "PROXIMITY_HEAD_LIM": [],
+'            "PROXIMITY_HEAD_CW": [],
+'            "PROXIMITY_HEAD_CCW": []
+'        }
+'    }
+'    json Power{
+'        "GND": [],
+'        "+24V": []
+'    }
+'}
+
+rectangle "MEP MAXI"{
+    rectangle Inputs{
+    }
+
+    rectangle Outputs{
+    }
+}
+
+rectangle "Interface Board"{
+    usecase UART0
+    usecase UART1
+}
+
+rectangle "SBC"{
+    usecase GPIO
+    package "HMI"{
+    }
+    usecase USB
+}
+
+rectangle Keypad{
+}
+
+rectangle Display{
+}
+
+rectangle EStop{
+}
+
+actor Operator
+
+Outputs <-- [Interface Board]: GND/+24V
+Inputs --> [Interface Board]: GND/+24V
+[UART1] --> [GPIO]: JSON Objects
+[UART0] --> [USB]: Debug + Firmware Updates
+[USB] <--> Keypad: JSON Objects + Firmware Updates
+[HMI] --> [USB]: /dev/ttyUSB*
+[HMI] --> [GPIO]: pi4j
+[HMI] --> Display: HDMI + USB
+[Interface Board] <-- EStop
+Display <--> Operator
+Keypad <-- Operator
+EStop <-- Operator
+
+@enduml
