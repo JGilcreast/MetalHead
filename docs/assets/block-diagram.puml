@@ -1,5 +1,8 @@
 @startuml
 
+left to right direction
+top to bottom direction
+
 'rectangle I/O{
 '    package Outputs{
 '        json Solenoids{
@@ -47,14 +50,21 @@
 '}
 
 rectangle "MEP MAXI"{
-    rectangle Inputs{
+    rectangle Buttons{
     }
-
-    rectangle Outputs{
+    rectangle Encoders{
+    }
+    rectangle "Proximity Sensors"{
+    }
+    rectangle Solenoids{
     }
 }
 
 rectangle "Interface Board"{
+    rectangle Inputs{
+    }
+    rectangle Outputs{
+    }
     usecase UART0
     usecase UART1
 }
@@ -75,16 +85,22 @@ rectangle Display{
 rectangle EStop{
 }
 
+cloud updates.metalhead.net{
+}
+
 actor Operator
 
-Outputs <-- [Interface Board]: GND/+24V
-Inputs --> [Interface Board]: GND/+24V
+Solenoids <-- Outputs: GND/+24V
+Encoders --> Inputs: GND/+24V
+Buttons --> Inputs: GND/+24V
+Inputs <-- "Proximity Sensors": GND/+24V
 [UART1] --> [GPIO]: JSON Objects
 [UART0] --> [USB]: Debug + Firmware Updates
 [USB] <--> Keypad: JSON Objects + Firmware Updates
 [HMI] --> [USB]: /dev/ttyUSB*
 [HMI] --> [GPIO]: pi4j
 [HMI] --> Display: HDMI + USB
+"HMI" --> updates.metalhead.net
 [Interface Board] <-- EStop
 Display <--> Operator
 Keypad <-- Operator
