@@ -131,6 +131,31 @@ address.
 
 ---
 
+# Software
+## HMI
+### KeypadEvent
+When the HMI receives a `KeypadEvent` from the keypad, the object is forwarded to the Interface Board for processing.
+The following is an example of how a `KeypadEvent` looks like when the HMI sends it to the Interface Board.
+```json
+{
+  "ObjectType": "KeypadEvent",
+  "Event": "SHEAR"
+}
+```
+```json
+{
+  "ObjectType": "KeypadEvent",
+  "Event": "PAUSE"
+}
+```
+The following keys are forwarded to the Interface Board from the HMI:
+* FORM TOOL IN
+* SHEAR
+* PAUSE
+* RUN
+
+---
+
 # Hardware
 ## Interface Board
 A brief explanation of what this does and how it achieves it. Mention the added SBC for the GUI.
