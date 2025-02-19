@@ -1,0 +1,34 @@
+// Outputs
+#define SHEAR_CUT 22
+#define SHEAR_HOME 23
+#define TOOL_OUT 24
+#define TOOL_IN 25
+#define FEED_FORWARD 26
+#define FEED_REVERSE 27
+#define HEAD_CW 28
+#define HEAD_CCW 29
+#define HEAD_OUT 30
+#define HEAD_IN 31
+
+// Inputs/Interrupts
+#define ENCODER_FEED_SET 32
+#define ENCODER_FEED_RESET 33
+#define ENCODER_BEND_SET 34
+#define ENCODER_BEND_RESET 35
+#define PROXIMITY_HEAD_OUT 36
+#define PROXIMITY_HEAD_IN 37
+#define PROXIMITY_SHEAR_HOME 38
+#define PROXIMITY_SHEAR_CUT 39
+#define PROXIMITY_TOOL_IN 40
+#define PROXIMITY_TOOL_OUT 41
+#define SHEAR_BUTTON 42
+#define PROXIMITY_HEAD_LIMIT 43
+#define PROXIMITY_HEAD_CW 44
+#define PROXIMITY_HEAD_CCW 45
+#define AUTO_BUTTON 46
+#define ESTOP 47
+#define FUSE 48
+
+// HMI
+#define HMI_TX 18
+#define HMI_RX 19
