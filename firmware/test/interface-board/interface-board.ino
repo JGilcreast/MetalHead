@@ -230,6 +230,7 @@ void loop() {
   // // Turn off HEAD_IN solenoid
   // digitalWrite(HEAD_IN, LOW);
 
+  // Process debug interrupt queue to print to serial
   if(!q.isEmpty()){
     Interrupt interrupt;
     q.pop(&interrupt);
@@ -388,6 +389,5 @@ void interruptFuseFalling(){
   // interface.fuseBlown = true;
   // The main loop code should send a StopEvent to the HMI
   // We also need to implement something at startup of the machine to check if the fuse has blown and send a StopEvent to the HMI.
-  if (digitalRead(ESTOP) != LOW) // ESTOP will pull down FUSE causing an interrupt because FUSE depends on ESTOP
-    q.push(&fuseInterrupt); // Send to queue for serial debugging
+  q.push(&fuseInterrupt); // Send to queue for serial debugging
 }
