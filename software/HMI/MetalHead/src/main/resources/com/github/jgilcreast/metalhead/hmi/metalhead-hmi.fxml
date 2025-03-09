@@ -19,6 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
@@ -33,7 +34,7 @@
    <children>
       <TabPane minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" GridPane.halignment="LEFT" GridPane.valignment="TOP">
         <tabs>
-          <Tab text="Manual Receipe">
+          <Tab text="Manual Recipe">
             <content>
               <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                      <children>
@@ -58,8 +59,8 @@
                               </ScrollPane>
                               <GridPane>
                                 <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="165.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="92.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="139.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="120.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="80.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="98.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="93.0" />
@@ -71,27 +72,15 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                    <Label text="Length Compensation:">
-                                       <padding>
-                                          <Insets left="10.0" top="10.0" />
-                                       </padding>
-                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Length Compensation:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin></Text>
                                     <Label GridPane.columnIndex="1">
                                        <padding>
                                           <Insets top="10.0" />
                                        </padding></Label>
-                                    <Label text="Bar Count:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-                                       <padding>
-                                          <Insets top="10.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label GridPane.columnIndex="3" GridPane.halignment="RIGHT">
-                                       <padding>
-                                          <Insets top="10.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label text="Mode:" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                                    <Label GridPane.columnIndex="3" GridPane.halignment="LEFT">
                                        <padding>
                                           <Insets top="10.0" />
                                        </padding>
@@ -100,16 +89,26 @@
                                        <GridPane.margin>
                                           <Insets top="10.0" />
                                        </GridPane.margin></ChoiceBox>
-                                    <Label contentDisplay="TOP" text="Run Count:" GridPane.columnIndex="6" GridPane.halignment="RIGHT">
-                                       <padding>
-                                          <Insets top="10.0" />
-                                       </padding>
-                                    </Label>
                                     <Label GridPane.columnIndex="7" GridPane.halignment="RIGHT">
                                        <padding>
                                           <Insets top="10.0" />
                                        </padding>
                                     </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bar Count:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </GridPane.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mode:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Run Count:" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                    </Text>
                                  </children>
                               </GridPane>
                            </children>
@@ -118,7 +117,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Preset Receipe">
+          <Tab text="Preset Recipe">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -127,7 +126,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Settings">
+            <Tab text="Diagnostics">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -136,7 +135,7 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Diagnostics">
+            <Tab text="Settings">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -162,7 +161,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                  <image>
-                                    <Image url="@../../../../MH-256.png" />
+                                    <Image url="@../../../../../MH-256.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -176,7 +175,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </TabPane>
-      <VBox alignment="CENTER_RIGHT" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="ALWAYS">
+      <VBox alignment="CENTER_RIGHT" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
          <children>
             <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Pause">
                <font>
@@ -189,34 +188,94 @@
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Infeed">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Run">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Key">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Shear">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Comp">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Error">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Screen&#10;Off" textAlignment="CENTER">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </children>
       </VBox>
       <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="308.0" minWidth="0.0" prefWidth="205.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="107.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0" minWidth="0.0" prefWidth="31.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="288.0" minWidth="10.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="0.0" prefWidth="26.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.0" minWidth="10.0" prefWidth="126.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Not Connected" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Label>
+            <Label text="Not Connected" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding></Label>
+            <Label text="Not Connected" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding></Label>
+            <FontIcon iconLiteral="bxs-microchip" iconSize="16" selectionEnd="0" selectionStart="0" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></FontIcon>
+            <FontIcon iconLiteral="bxs-keyboard" iconSize="16" selectionEnd="0" selectionStart="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></FontIcon>
+            <FontIcon iconLiteral="bx-wifi-off" iconSize="16" selectionEnd="0" selectionStart="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></FontIcon>
+         </children>
+      </GridPane>
       <Separator prefWidth="200.0" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
       
    </children>

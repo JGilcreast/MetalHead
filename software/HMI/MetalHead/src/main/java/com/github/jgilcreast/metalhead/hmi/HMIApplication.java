@@ -15,7 +15,7 @@ public class HMIApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HMIApplication.class.getResource("metalhead-hmi.fxml"));
         Application.setUserAgentStylesheet(new CupertinoDark().getUserAgentStylesheet());
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("MetalHead");
+        stage.setTitle("MetalHead HMI");
         stage.getIcons().add(new Image("/MH-64.png"));
         stage.setScene(scene);
         stage.show();
