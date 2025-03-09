@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MC74LVX32DR2G
+D High Speed: tPD = 4.4ns (Typ) at VCC = 3.3V; Balanced Propagation Delays; Low Noise: VOLP = 0.5V (Max); ESD Performance: HBM > 2000V; Machine Model > 200V; Pin and Function Compatible with Other Standard Logic Families; Power Down Protection Provided on Inputs; Low Power Dissipation: ICC = 2A (Max) at TA = 25 C; Latchup Performance Exceeds 300mA; Pb-Free Packages are Available*
+K
+F https://www.onsemi.com/pub/Collateral/MC74LVX32-D.PDF
+$ENDCMP
+#
+#End Doc Library
