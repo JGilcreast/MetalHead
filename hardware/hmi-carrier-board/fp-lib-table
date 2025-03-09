@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "RASPBERRY_PI_4B_4GB")(type "KiCad")(uri "${KIPRJMOD}/lib/RASPBERRY_PI_4B_4GB")(options "")(descr ""))
+)
