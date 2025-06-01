@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP IRFR7540TRPBF
+D N-Channel 60 V 90A (Tc) 140W (Tc) Surface Mount TO-252AA (DPAK)
+K
+F https://www.infineon.com/dgdl/Infineon-IRFR7540-DataSheet-v01_01-EN.pdf?fileId=5546d462533600a401535635b06a211c
+$ENDCMP
+#
+#End Doc Library
