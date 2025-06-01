@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NXS0102DCH
+D NXS0102 - Dual supply translating transceiver; open drain; autodirectionsensing@en-us
+K
+F https://assets.nexperia.com/documents/data-sheet/NXS0102.pdf
+$ENDCMP
+#
+#End Doc Library

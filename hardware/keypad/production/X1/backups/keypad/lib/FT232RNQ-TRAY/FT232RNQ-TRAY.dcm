@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP FT232RNQ-TRAY
+D UART Interface IC USB Full Speed to Serial UART IC, Includes Oscillator and EEPROM, QFN-32
+K
+F https://ftdichip.com/wp-content/uploads/2022/12/DS_FT232RN.pdf
+$ENDCMP
+#
+#End Doc Library

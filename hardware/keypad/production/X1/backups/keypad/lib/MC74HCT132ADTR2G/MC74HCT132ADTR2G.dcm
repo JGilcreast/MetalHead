@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MC74HCT132ADTR2G
+D Output Drive Capability: 10 LSTTL Loads; Outputs Directly Interface to CMOS, NMOS, and TTL; Operating Voltage Range: 2.0 to 6.0 V; Low Input Current: 1.0 A; High Noise Immunity Characteristic of CMOS Devices; In Compliance with the Requirements as Defined by JEDEC Standard No. 7A; Chip Complexity: 72 FETs or 18 Equivalent Gates; These are PbFree Devices
+K
+F https://www.onsemi.com/pub/Collateral/MC74HC132A-D.PDF
+$ENDCMP
+#
+#End Doc Library

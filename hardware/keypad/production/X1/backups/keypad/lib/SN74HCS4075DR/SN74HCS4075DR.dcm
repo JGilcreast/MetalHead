@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP SN74HCS4075DR
+D Logic Gates 3-channel, 3-input OR gates with schmitt-trigger inputs
+K
+F https://www.ti.com/lit/gpn/SN74HCS4075
+$ENDCMP
+#
+#End Doc Library

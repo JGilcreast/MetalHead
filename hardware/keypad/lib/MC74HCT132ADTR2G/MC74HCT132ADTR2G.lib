@@ -1,0 +1,37 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model MC74HCT132ADTR2G
+#/1897177/1198243/2.50/14/2/Integrated Circuit
+DEF MC74HCT132ADTR2G IC 0 30 Y Y 1 F N
+F0 "IC" 850 300 50 H V L CNN
+F1 "MC74HCT132ADTR2G" 850 200 50 H V L CNN
+F2 "SOP65P640X120-14N" 850 100 50 H I L CNN
+F3 "https://www.onsemi.com/pub/Collateral/MC74HC132A-D.PDF" 850 0 50 H I L CNN
+F4 "Output Drive Capability: 10 LSTTL Loads; Outputs Directly Interface to CMOS, NMOS, and TTL; Operating Voltage Range: 2.0 to 6.0 V; Low Input Current: 1.0 A; High Noise Immunity Characteristic of CMOS Devices; In Compliance with the Requirements as Defined by JEDEC Standard No. 7A; Chip Complexity: 72 FETs or 18 Equivalent Gates; These are PbFree Devices" 850 -100 50 H I L CNN "Description"
+F5 "1.2" 850 -200 50 H I L CNN "Height"
+F6 "onsemi" 850 -300 50 H I L CNN "Manufacturer_Name"
+F7 "MC74HCT132ADTR2G" 850 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "863-MC74HCT132ADTR2G" 850 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/onsemi/MC74HCT132ADTR2G?qs=3ezCrKCRT5LEsXqTZRgMoA%3D%3D" 850 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "" 850 -700 50 H I L CNN "Arrow Part Number"
+F11 "" 850 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X A1 1 0 0 200 R 50 50 0 0 P
+X B1 2 0 -100 200 R 50 50 0 0 P
+X Y1 3 0 -200 200 R 50 50 0 0 P
+X A2 4 0 -300 200 R 50 50 0 0 P
+X B2 5 0 -400 200 R 50 50 0 0 P
+X Y2 6 0 -500 200 R 50 50 0 0 P
+X GND 7 0 -600 200 R 50 50 0 0 P
+X VCC 14 1000 0 200 L 50 50 0 0 P
+X B4 13 1000 -100 200 L 50 50 0 0 P
+X A4 12 1000 -200 200 L 50 50 0 0 P
+X Y4 11 1000 -300 200 L 50 50 0 0 P
+X B3 10 1000 -400 200 L 50 50 0 0 P
+X A3 9 1000 -500 200 L 50 50 0 0 P
+X Y3 8 1000 -600 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 800 100 800 -700 200 -700 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library
