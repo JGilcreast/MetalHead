@@ -192,7 +192,17 @@
         0.4,
         0.6,
         0.8,
-        1.0
+        1.0,
+        1.2,
+        1.4,
+        1.6,
+        1.8,
+        2.0,
+        2.2,
+        2.4,
+        2.6,
+        2.8,
+        3.0
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -505,10 +515,10 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "production/X1/pcb/",
+      "plot": "production/X2/pcb/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "production/X1/3D/keypad.stl",
+      "step": "production/X2/3D/keypad.step",
       "svg": "",
       "vrml": ""
     },
@@ -672,7 +682,7 @@
       "workbook_filename": ""
     },
     "page_layout_descr_file": "",
-    "plot_directory": "production/X1/schematic/",
+    "plot_directory": "production/X2/schematic/",
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",

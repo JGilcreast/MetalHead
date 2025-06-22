@@ -1,0 +1,10 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "FT232RNQ-TRAY")(type "KiCad")(uri "${KIPRJMOD}/lib/FT232RNQ-TRAY/FT232RNQ-TRAY.kicad_sym")(options "")(descr ""))
+  (lib (name "MC74LVX32DR2G")(type "KiCad")(uri "${KIPRJMOD}/lib/MC74LVX32DR2G/MC74LVX32DR2G.kicad_sym")(options "")(descr ""))
+  (lib (name "MC74HCT132ADTR2G")(type "KiCad")(uri "${KIPRJMOD}/lib/MC74HCT132ADTR2G/MC74HCT132ADTR2G.kicad_sym")(options "")(descr ""))
+  (lib (name "SN74LVC2G14DBVR")(type "KiCad")(uri "${KIPRJMOD}/lib/SN74LVC2G14DBVR/SN74LVC2G14DBVR.kicad_sym")(options "")(descr ""))
+  (lib (name "EDGE_38P_Female_CNANO")(type "KiCad")(uri "${KIPRJMOD}/lib/CNANO/EDGE_38P_Female_CNANO.kicad_sym")(options "")(descr ""))
+  (lib (name "NXS0102DCH")(type "KiCad")(uri "${KIPRJMOD}/lib/NXS0102/NXS0102DCH.kicad_sym")(options "")(descr ""))
+  (lib (name "SN74HCS4075DR")(type "KiCad")(uri "${KIPRJMOD}/lib/SN74HCS4075DR/SN74HCS4075DR.kicad_sym")(options "")(descr ""))
+)

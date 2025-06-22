@@ -1,7 +1,5 @@
 (fp_lib_table
   (version 7)
-  (lib (name "keyswitches.pretty-2.1")(type "KiCad")(uri "${KIPRJMOD}/lib/keyswitches.pretty-2.1")(options "")(descr ""))
-  (lib (name "EDGE_38P_Female_CNANO")(type "KiCad")(uri "${KIPRJMOD}/lib/CNANO/EDGE_38P_Female_CNANO.pretty")(options "")(descr ""))
   (lib (name "MC74HCT132ADTR2G")(type "KiCad")(uri "${KIPRJMOD}/lib/MC74HCT132ADTR2G")(options "")(descr ""))
   (lib (name "MC74LVX32DR2G")(type "KiCad")(uri "${KIPRJMOD}/lib/MC74LVX32DR2G")(options "")(descr ""))
   (lib (name "SN74LVC2G14DBVR")(type "KiCad")(uri "${KIPRJMOD}/lib/SN74LVC2G14DBVR")(options "")(descr ""))
