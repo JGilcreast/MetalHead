@@ -32,7 +32,7 @@ void setup() {
   // Let's establish ourselves as a
   Wire.begin();
 
-  // Let's initiate the conversion on the i2c bus
+  // Let's initiate the conversation on the i2c bus
   PCF1.begin();
   PCF2.begin();
 

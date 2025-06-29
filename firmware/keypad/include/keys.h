@@ -5,35 +5,35 @@
 #ifndef KEYS_H
 #define KEYS_H
 /* First PCF8575 GPIO I2C Expander - U408 */
-#define DISP 1 // DISPLAY is already defined in Arduino.h
-#define COMP 2
-#define INFEED 4
-#define HEAD_POS 8
-#define FORM_TOOL_IN 16
-#define SHEAR 32
-#define PAUSE 64
-#define RUN 128
-#define UP 256
-#define ENTER 512
-#define ONE 1024
-#define TWO 2048
-#define THREE 4096
-#define PLUS 8192
-#define LEFT 16384
-#define MENU 32768
+#define DISP          0b0000000000000001 // DISPLAY is already defined in Arduino.h
+#define COMP          0b0000000000000010
+#define INFEED        0b0000000000000100
+#define HEAD_POS      0b0000000000001000
+#define FORM_TOOL_IN  0b0000000000010000
+#define SHEAR         0b0000000000100000
+#define PAUSE         0b0000000001000000
+#define RUN           0b0000000010000000
+#define UP            0b0000000100000000
+#define ENTER         0b0000001000000000
+#define ONE           0b0000010000000000
+#define TWO           0b0000100000000000
+#define THREE         0b0001000000000000
+#define PLUS          0b0010000000000000
+#define LEFT          0b0100000000000000
+#define MENU          0b1000000000000000
 /* Second PCF8575 GPIO I2C Expander - U407 */
-#define RIGHT 1
-#define FOUR 2
-#define FIVE 4
-#define SIX 8
-#define MINUS 16
-#define MEMORY 32
-#define DOWN 64
-#define DECIMAL 128
-#define SEVEN 256
-#define EIGHT 512
-#define NINE 1024
-#define ZERO 2048
+#define RIGHT         0b0000000000000001
+#define FOUR          0b0000000000000010
+#define FIVE          0b0000000000000100
+#define SIX           0b0000000000001000
+#define MINUS         0b0000000000010000
+#define MEMORY        0b0000000000100000
+#define DOWN          0b0000000001000000
+#define DECIMAL       0b0000000010000000
+#define SEVEN         0b0000000100000000
+#define EIGHT         0b0000001000000000
+#define NINE          0b0000010000000000
+#define ZERO          0b0000100000000000
 
 volatile bool stateDisplay = false;
 volatile bool stateComp = false;
@@ -63,40 +63,6 @@ volatile bool stateSeven = false;
 volatile bool stateEight = false;
 volatile bool stateNine = false;
 volatile bool stateZero = false;
-
-inline void resetPCF1Sates() {
-  stateDisplay = false;
-  stateComp = false;
-  stateInfeed = false;
-  stateHeadPos = false;
-  stateFormToolIn = false;
-  stateShear = false;
-  statePause = false;
-  stateRun = false;
-  stateUp = false;
-  stateEnter = false;
-  stateOne = false;
-  stateTwo = false;
-  stateThree = false;
-  statePlus = false;
-  stateLeft = false;
-  stateMenu = false;
-}
-
-inline void resetPCF2Sates() {
-  stateRight = false;
-  stateFour = false;
-  stateFive = false;
-  stateSix = false;
-  stateMinus = false;
-  stateMemory = false;
-  stateDown = false;
-  stateDecimal = false;
-  stateSeven = false;
-  stateEight = false;
-  stateNine = false;
-  stateZero = false;
-}
 
 inline void updatePCFStates(uint16_t pcf1Bits, uint16_t pcf2Bits) {
   stateDisplay = bool(pcf1Bits & DISP);
