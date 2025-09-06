@@ -34,3 +34,14 @@ fp-info-cache
 *.mp4
 docs\oem\85V Maintenance Schedule.pdf
 docs/oem/85V Maintenance Schedule.pdf
+
+# Zephyr
+firmware\interface-board-zephyr\.venv
+firmware\interface-board-zephyr\.west
+firmware\interface-board-zephyr\bootloader
+firmware\interface-board-zephyr\modules
+firmware\interface-board-zephyr\tools
+firmware\interface-board-zephyr\zephyr
+
+# Microsoft Wrod Documents
+~$*
