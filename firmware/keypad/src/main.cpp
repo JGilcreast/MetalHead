@@ -4,6 +4,7 @@
 #include <pins.h>
 #include <keys.h>
 
+uint8_t pi02wI2cAddr = 100;
 PCF8575 PCF1(0x20);
 PCF8575 PCF2(0x21);
 uint16_t pcf1;
@@ -25,11 +26,18 @@ void repeat_irq() {
   repeatFlag = true;
 }
 
+void send(const char key[]) {
+  Serial.println(key);
+  Wire.beginTransmission(pi02wI2cAddr);
+  Wire.write(key);
+  Wire.endTransmission();
+}
+
 void setup() {
   // while(!Serial);
   Serial.begin(115200);
 
-  // Let's establish ourselves as a
+  // Let's establish ourselves as
   Wire.begin();
 
   // Let's initiate the conversation on the i2c bus
@@ -42,7 +50,7 @@ void setup() {
 
   // Tell the uC which function to execute when interrupted
   attachInterrupt(digitalPinToInterrupt(PCF8575_INT), pcf_irq, RISING);
-  attachInterrupt(digitalPinToInterrupt(REPEATER_INT), pcf_irq, RISING);
+  attachInterrupt(digitalPinToInterrupt(REPEATER_INT), repeat_irq, RISING);
 }
 
 void loop() {
@@ -58,116 +66,116 @@ void loop() {
     if (pcf1 != 0 || pcf2 != 0) {
       if (pcf1 & DISP && !stateDisplay) {
         stateDisplay = true;
-        Serial.println("DISPLAY");
+        send("DISPLAY");
       }
       if (pcf1 & COMP && !stateComp) {
         stateComp = true;
-        Serial.println("COMP");
+        send("COMP");
       }
       if (pcf1 & INFEED && !stateInfeed) {
         stateInfeed = true;
-        Serial.println("INFEED");
+        send("INFEED");
       }
       if (pcf1 & HEAD_POS && !stateHeadPos) {
         stateHeadPos = true;
-        Serial.println("HEAD_POS");
+        send("HEAD_POS");
       }
       if (pcf1 & FORM_TOOL_IN && !stateFormToolIn) {
         stateFormToolIn = true;
-        Serial.println("FORM_TOOL_IN");
+        send("FORM_TOOL_IN");
       }
       if (pcf1 & SHEAR && !stateShear) {
         stateShear = true;
-        Serial.println("SHEAR");
+        send("SHEAR");
       }
       if (pcf1 & PAUSE && !statePause) {
         statePause = true;
-        Serial.println("PAUSE");
+        send("PAUSE");
       }
       if (pcf1 & RUN && !stateRun) {
         stateRun = true;
-        Serial.println("RUN");
+        send("RUN");
       }
       if (pcf1 & UP && (!stateUp || repeatFlag)) {
         stateUp = true;
-        Serial.println("UP");
+        send("UP");
       }
       if (pcf1 & ENTER && !stateEnter) {
         stateEnter = true;
-        Serial.println("ENTER");
+        send("ENTER");
       }
       if (pcf1 & ONE && (!stateOne || repeatFlag)) {
         stateOne = true;
-        Serial.println("ONE");
+        send("ONE");
       }
       if (pcf1 & TWO && (!stateTwo || repeatFlag)) {
         stateTwo = true;
-        Serial.println("TWO");
+        send("TWO");
       }
       if (pcf1 & THREE && (!stateThree || repeatFlag)) {
         stateThree = true;
-        Serial.println("THREE");
+        send("THREE");
       }
       if (pcf1 & PLUS && (!statePlus || repeatFlag)) {
         statePlus = true;
-        Serial.println("PLUS");
+        send("PLUS");
       }
       if (pcf1 & LEFT && (!stateLeft || repeatFlag)){
         stateLeft = true;
-        Serial.println("LEFT");
+        send("LEFT");
       }
       if (pcf1 & MENU && !stateMenu) {
         stateMenu = true;
-        Serial.println("MENU");
+        send("MENU");
       }
       // PCF2
       if (pcf2 & RIGHT && (!stateRight || repeatFlag)) {
         stateRight = true;
-        Serial.println("RIGHT");
+        send("RIGHT");
       }
       if (pcf2 & FOUR && (!stateFour || repeatFlag)) {
         stateFour = true;
-        Serial.println("FOUR");
+        send("FOUR");
       }
       if (pcf2 & FIVE && (!stateFive || repeatFlag)) {
         stateFive = true;
-        Serial.println("FIVE");
+        send("FIVE");
       }
       if (pcf2 & SIX && (!stateSix || repeatFlag)) {
         stateSix = true;
-        Serial.println("SIX");
+        send("SIX");
       }
       if (pcf2 & MINUS && (!stateMinus || repeatFlag)) {
         stateMinus = true;
-        Serial.println("MINUS");
+        send("MINUS");
       }
       if (pcf2 & MEMORY && (!stateMemory || repeatFlag)) {
         stateMemory = true;
-        Serial.println("MEMORY");
+        send("MEMORY");
       }
       if (pcf2 & DOWN && (!stateDown || repeatFlag)) {
         stateDown = true;
-        Serial.println("DOWN");
+        send("DOWN");
       }
       if (pcf2 & DECIMAL && !stateDecimal) {
         stateDecimal = true;
-        Serial.println("DECIMAL");
+        send("DECIMAL");
       }
       if (pcf2 & SEVEN && (!stateSeven || repeatFlag)) {
         stateSeven = true;
-        Serial.println("SEVEN");
+        send("SEVEN");
       }
       if (pcf2 & EIGHT && (!stateEight || repeatFlag)) {
         stateEight = true;
-        Serial.println("EIGHT");
+        send("EIGHT");
       }
       if (pcf2 & NINE && (!stateNine || repeatFlag)) {
         stateNine = true;
-        Serial.println("NINE");
+        send("NINE");
       }
       if (pcf2 & ZERO && (!stateZero || repeatFlag)) {
         stateZero = true;
-        Serial.println("ZERO");
+        send("ZERO");
       }
     }
 
