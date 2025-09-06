@@ -1,0 +1,55 @@
+// Install protoc:
+// winget install protobuf
+// protoc --version # Ensure compiler version is 3+
+// Run:
+// cd C:\Users\User\Devel\MetalHead\software\test\interface-board-client-status-indicators\src\main\java\com\github\mibs510
+// >protoc --proto_path=.\ --java_out=.\ StatusIndicators.proto
+
+syntax = "proto3";
+
+message StatusIndicators {
+  bool shearCut = 1;
+  bool shearHome = 2;
+  bool toolOut = 3;
+  bool toolIn = 4;
+  bool feedForward = 5;
+  bool feedReverse = 6;
+  bool headCw = 7;
+  bool headCcw = 8;
+  bool headOut = 9;
+  bool headIn = 10;
+
+  bool encoderFeedSet = 11;
+  bool encoderFeedReset = 12;
+  bool encoderBendSet = 13;
+  bool encoderBendRest = 14;
+  bool proximityHeadOut = 15;
+  bool proximityHeadIn = 16;
+  bool proximityShearHome = 17;
+  bool proximityShearCut = 18;
+  bool proximityToolIn = 19;
+  bool proximityToolOut = 20;
+  bool shearButton = 21;
+  bool proximityHeadLimit = 22;
+  bool proximityHeadCw = 23;
+  bool proximityHeadCcw = 24;
+  bool autoButton = 25;
+  bool eStop = 26;
+  bool fuse = 27;
+
+  int32 encoderFeedCount = 28;
+  int32 encoderBendCount = 29;
+
+  float twentyFourVrawBusVoltage = 30;
+  float twentyFourVrawBusCurrent = 31;
+  float auxTwentyFourVBusVoltage = 32;
+  float auxTwentyFourVBusCurrent = 33;
+  float twelveVBusVoltage = 34;
+  float twelveVBusCurrent = 35;
+  float fiveVBusVoltage = 36;
+  float fiveVBusCurrent = 37;
+  float threeVThreeVBusVoltage = 38;
+  float threeVThreeVBusCurrent = 39;
+  float fGndBusVoltage = 40;
+  float fGndBusCurrent = 41;
+}
