@@ -1,0 +1,195 @@
+/ {
+	aliases {
+		eeprom-0 = &at24_eeprom_0;
+	};
+
+	// Solenoids
+	shear_cut: shear_cut {
+		compatible = "gpio";
+		gpios = <&piob 26 0>;
+		label = "SHEAR_CUT";
+	};
+	shear_home: shear_home {
+		compatible = "gpio";
+		gpios = <&pioa 14 0>;
+		label = "SHEAR_HOME";
+	};
+	tool_out: tool_out {
+		compatible = "gpio";
+		gpios = <&pioa 15 0>;
+		label = "TOOL_OUT";
+	};
+	tool_in: tool_in {
+		compatible = "gpio";
+		gpios = <&piod 0 0>;
+		label = "TOOL_IN";
+	};
+	feed_forward: feed_forward {
+		compatible = "gpio";
+		gpios = <&piod 1 0>;
+		label = "FEED_FORWARD";
+	};
+	feed_reverse: feed_reverse {
+		compatible = "gpio";
+		gpios = <&piod 2 0>;
+		label = "FEED_REVERSE";
+	};
+	head_cw: head_cw {
+		compatible = "gpio";
+		gpios = <&piod 3 0>;
+		label = "HEAD_CW";
+	};
+	head_ccw: head_ccw {
+		compatible = "gpio";
+		gpios = <&piod 6 0>;
+		label = "HEAD_CCW";
+	};
+	head_out: head_out {
+		compatible = "gpio";
+		gpios = <&piod 9 0>;
+		label = "HEAD_OUT";
+	};
+	head_in: head_in {
+		compatible = "gpio";
+		gpios = <&pioa 7 0>;
+		label = "HEAD_IN";
+	};
+
+	// Encoders
+	encoder_feed_set: encoder_feed_set {
+		compatible = "gpio";
+		gpios = <&piod 10 0>;
+		label = "ENCODER_FEED_SET";
+	};
+	encoder_feed_reset: encoder_feed_reset {
+		compatible = "gpio";
+		gpios = <&pioc 1 0>;
+		label = "ENCODER_FEED_RESET";
+	};
+	encoder_bend_set: encoder_bend_set {
+		compatible = "gpio";
+		gpios = <&pioc 2 0>;
+		label = "ENCODER_BEND_SET";
+	};
+	encoder_bend_reset: encoder_bend_reset {
+		compatible = "gpio";
+		gpios = <&pioc 3 0>;
+		label = "ENCODER_BEND_RESET";
+	};
+
+	// Proximity sensors
+	proximity_head_out: proximity_head_out {
+		compatible = "gpio";
+		gpios = <&pioc 4 0>;
+		label = "PROXIMITY_HEAD_OUT";
+	};
+	proximity_head_in: proximity_head_in {
+		compatible = "gpio";
+		gpios = <&pioc 5 0>;
+		label = "PROXIMITY_HEAD_IN";
+	};
+	proximity_shear_home: proximity_shear_home {
+		compatible = "gpio";
+		gpios = <&pioc 6 0>;
+		label = "PROXIMITY_SHEAR_HOME";
+	};
+	proximity_shear_cut: proximity_shear_cut {
+		compatible = "gpio";
+		gpios = <&pioc 7 0>;
+		label = "PROXIMITY_SHEAR_CUT";
+	};
+	proximity_tool_in: proximity_tool_in {
+		compatible = "gpio";
+		gpios = <&piod 8 0>;
+		label = "PROXIMITY_TOOL_IN";
+	};
+	proximity_tool_out: proximity_tool_out {
+		compatible = "gpio";
+		gpios = <&pioc 9 0>;
+		label = "PROXIMITY_TOOL_OUT";
+	};
+	proximity_head_limit: proximity_head_limit {
+		compatible = "gpio";
+		gpios = <&pioa 20 0>;
+		label = "PROXIMITY_HEAD_LIMIT";
+	};
+	proximity_head_cw: proximity_head_cw {
+		compatible = "gpio";
+		gpios = <&pioc 19 0>;
+		label = "PROXIMITY_HEAD_CW";
+	};
+	proximity_head_ccw: proximity_head_ccw {
+		compatible = "gpio";
+		gpios = <&pioc 18 0>;
+		label = "PROXIMITY_HEAD_CCW";
+	};
+
+	// Buttons
+	shear_button: shear_button {
+		compatible = "gpio";
+		gpios = <&pioa 19 0>;
+		label = "SHEAR_BUTTON";
+	};
+	auto_button: auto_button {
+		compatible = "gpio";
+		gpios = <&pioc 17 0>;
+		label = "AUTO_BUTTON";
+	};
+
+	// Auxillary
+	estop: estop {
+		compatible = "gpio";
+		gpios = <&pioc 16 0>;
+		label = "ESTOP";
+	};
+	fuse: fuse {
+		compatible = "gpio";
+		gpios = <&pioc 15 0>;
+		label = "FUSE";
+	};
+
+	// Power
+	vraw24: vraw24 {
+		compatible = "gpio";
+		gpios = <&pioc 14 0>;
+		label = "24VRAW";
+	};
+	aux24v: aux24v {
+		compatible = "gpio";
+		gpios = <&pioc 13 0>;
+		label = "AUX24V";
+	};
+};
+
+&twi1 {
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_FAST>;
+	at24_eeprom_0: eeprom@50 {
+		compatible = "atmel,at24";
+		reg = <0x50>;
+		size = <32768>;
+		pagesize = <64>;
+		address-width = <16>;
+		timeout = <5>;
+		label = "EEPROM";
+	};
+	ina226_0: ina226@40 {
+		compatible = "ti,ina226";
+		reg = <0x40>; // I2C address
+		label = "FUSED_GND";
+		avg-count = <256>;
+		rshunt-micro-ohms = <2000>; // Example: 2 mOhm shunt
+		current-lsb-microamps = <457>;  // Example: 457 uA/LSB (15A)
+		// Other configurations like bus-voltage-resistor etc.
+	};
+};
+
+&spi0 {
+	w5500: w5500@0 {
+		compatible = "wiznet,w5500";
+		reg = <0>; // Chip select line
+		spi-max-frequency = <8000000>; // Example frequency
+		int-gpios = <&piod 7 GPIO_ACTIVE_LOW>; // Replace with your GPIO port and pin
+		reset-gpios = <&pioc 25 GPIO_ACTIVE_LOW>; // Replace with your GPIO port and pin
+	};
+};

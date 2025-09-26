@@ -9,6 +9,55 @@ What is MetalHead and the short story behind the name
 
 # Firmware
 ## Interface Board
+To setup a development environment:
+Download & install [PlatformIO](https://docs.platformio.org/en/latest/core/installation/methods/installer-script.html)
+* Download and install [CLion](https://www.jetbrains.com/clion/)
+  * Alternative: [Microsoft Visual Studio Code](https://apps.microsoft.com/detail/xp9khm4bk9fz7q?query=python&hl=en-US&gl=US)
+* Install [PlatformIO CLion plugin](https://plugins.jetbrains.com/plugin/13922-platformio-for-clion)
+  * Alternative: [Microsoft Visual Studio Code PlatformIO plugin](https://platformio.org/install/ide?install=vscode)
+### Arduino API
+To develop the Arduino API:
+* Open MetalHead/firmware/interface-board in your preferred IDE (CLion / VSCode)
+### Zephyr RTOS
+* It's preferred to use CLion, 
+* [Download](https://apps.microsoft.com/search?query=python&hl=en-US&gl=US) and install the latest version of python
+* Verify python is accessible via cmd:
+  * `python -V`
+* Create python virtual environment
+  * `cd MetalHead\firmware\interface-board-zephyr`
+  * `python -m venv .\.venv`
+* Enter python virtual environment
+  * `.\.venv\Scripts\activate.bat`
+* Update pip (optional)
+  * `python.exe -m pip install --upgrade pip`
+* Install west
+  * `pip install west`
+* Initiate the Zephyr-RTOS project
+  * `west init`
+* Pull the latest commits from Zephyr's github
+  * `west update`
+* Export a Zephyr CMake package. This allows CMake to automatically load boilerplate code required for building Zephyr applications.
+  * `west zephyr-export`
+  * > See: Computer\HKEY_CURRENT_USER\Software\Kitware\CMake\Packages
+* Install additional packages need by west
+  * `west packages pip --install`
+* Install the Zephyr SDK
+  * `west sdk install`
+* Create a folder for bossac: C:\Program Files (x86)\BOSSA
+* Copy bossac.exe to C:\Program Files (x86)\BOSSA
+* Add C:\Program Files (x86)\BOSSA to PATH environment (use `sysdm.cpl`)
+  * Make sure you can access bossac.exe. Open a new terminal and run: `bossac --help`
+* Start CLion
+* Open our project: MetalHead\firmware\interface-board-zephyr\application
+* You will more than likely need to adjust the COM port for bossac to upload the firmware. In CLion, this is achieved by editing the West configuration under 'Flash options'
+
+To build a pristine copy of the firmware binary:
+
+  * `cd MetalHead\firmware\interface-board-zephyr`
+  * `rmdir /q /s application\build`
+  * Go back to CLion and reload West
+  * Build, flash, etc
+
 We are using [ArduinoJson](https://arduinojson.org/) to serialize and deserialize json objects between the Interface
 Board and HMI. All JSON objects will have `ObjectType` to identify the type of message being transferred or received.
 This will make it easy to deserialize a JSON object into one of our own objects.

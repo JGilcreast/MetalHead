@@ -1,0 +1,6 @@
+.venv
+application/build
+bootloader
+modules
+tools
+zephyr

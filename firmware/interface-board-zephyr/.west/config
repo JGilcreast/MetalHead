@@ -1,0 +1,13 @@
+[manifest]
+path = zephyr
+file = west.yml
+
+[zephyr]
+base = zephyr
+
+[color]
+ui = true
+
+[build]
+board = arduino_due
+dir = application\build

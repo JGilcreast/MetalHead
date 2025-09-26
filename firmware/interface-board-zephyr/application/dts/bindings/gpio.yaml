@@ -1,0 +1,14 @@
+description: GPIO pin to switch a power output on or off. GPIO interrupt pin.
+
+compatible: "gpio"
+
+properties:
+  gpios:
+    type: phandle-array
+    required: true
+    description: "The GPIO connected to the gate driver for a MOSFET.
+    The GPIO connected indirectly to the output of a sensor."
+  label:
+    type: string
+    description: "Human-readable label"
+    required: true
