@@ -42,15 +42,7 @@ public:
       if (this->state == HOME) {
         home();
       } else if (this->state == PROCESS_RECIPE) {
-        // Do magic here
-
-        // feedForward();
-        // bendCw();
-        // feedForward();
-        // bendCcw();
-        // feedForward();
-        this->primaryAction = SHEAR;
-        cutRebar();
+        processRecipeLine();
       }
     }
   }
@@ -75,11 +67,17 @@ public:
   static void turnOffShearCut() {
     digitalWrite(SHEAR_CUT_PIN, LOW);
   }
+  static bool getShearCutStatus() {
+    return digitalRead(SHEAR_CUT_PIN);
+  }
   static void turnOnShearHome() {
     digitalWrite(SHEAR_HOME_PIN, HIGH);
   }
   static void turnOffShearHome() {
     digitalWrite(SHEAR_HOME_PIN, LOW);
+  }
+  static bool getShearHomeStatus() {
+    return digitalRead(SHEAR_HOME_PIN);
   }
   static void turnOnToolOut() {
     digitalWrite(TOOL_OUT_PIN, HIGH);
@@ -87,11 +85,17 @@ public:
   static void turnOffToolOut() {
     digitalWrite(TOOL_OUT_PIN, LOW);
   }
+  static bool getToolOutStatus() {
+    return digitalRead(TOOL_OUT_PIN);
+  }
   static void turnOnToolIn() {
     digitalWrite(TOOL_IN_PIN, HIGH);
   }
   static void turnOffToolIn() {
     digitalWrite(TOOL_IN_PIN, LOW);
+  }
+  static bool getToolInStatus() {
+    return digitalRead(TOOL_IN_PIN);
   }
   static void turnOnFeedForward() {
     digitalWrite(FEED_FORWARD_PIN, HIGH);
@@ -99,11 +103,17 @@ public:
   static void turnOffFeedForward() {
     digitalWrite(FEED_FORWARD_PIN, LOW);
   }
+  static bool getFeedForwardStatus() {
+    return digitalRead(FEED_FORWARD_PIN);
+  }
   static void turnOnFeedReverse() {
     digitalWrite(FEED_REVERSE_PIN, HIGH);
   }
   static void turnOffFeedReverse() {
     digitalWrite(FEED_REVERSE_PIN, LOW);
+  }
+  static bool getFeedReverseStatus() {
+    return digitalRead(FEED_REVERSE_PIN);
   }
   static void turnOnHeadCw() {
     digitalWrite(HEAD_CW_PIN, HIGH);
@@ -111,11 +121,17 @@ public:
   static void turnOffHeadCw() {
     digitalWrite(HEAD_CW_PIN, LOW);
   }
+  static bool getHeadCwStatus() {
+    return digitalRead(HEAD_CW_PIN);
+  }
   static void turnOnHeadCcw() {
     digitalWrite(HEAD_CCW_PIN, HIGH);
   }
   static void turnOffHeadCcw() {
     digitalWrite(HEAD_CCW_PIN, LOW);
+  }
+  static bool getHeadCcwStatus() {
+    return digitalRead(HEAD_CCW_PIN);
   }
   static void turnOnHeadOut() {
     digitalWrite(HEAD_OUT_PIN, HIGH);
@@ -123,12 +139,19 @@ public:
   static void turnOffHeadOut() {
     digitalWrite(HEAD_OUT_PIN, LOW);
   }
+  static bool getHeadOutStatus() {
+    return digitalRead(HEAD_OUT_PIN);
+  }
   static void turnOnHeadIn() {
     digitalWrite(HEAD_IN_PIN, HIGH);
   }
   static void turnOffHeadIn() {
     digitalWrite(HEAD_IN_PIN, LOW);
   }
+  static bool getHeadInStatus() {
+    return digitalRead(HEAD_IN_PIN);
+  }
+
   // Will be mostly used by ESTOP
   static void turnOffEverything() {
     turnOffShearCut();
@@ -147,25 +170,41 @@ public:
   // These utilize turn on and offs to complete a task (e.g. cut the rebar)
   void cutRebar() {
     // Keep retracting shear if needed
-    if (this->secondaryAction == SHEAR_RETRACT)
+    if (this->secondaryAction == SHEAR_RETRACT) {
       retractShear();
+      return;
+    }
 
     // Retract shear if shear is in limbo
-    if (this->secondaryAction != SHEAR_RETRACT) // If we are not already retracting the shear
-      if (!this->statusIndicators.proximityShearHome) // and if shear is not in home position
-        if (!this->statusIndicators.proximityShearCut) //
-          if (this->statusIndicators.shearCut) {
+    if (this->primaryAction == SHEAR) { // If the primary action is to shear
+      if (this->secondaryAction == NA) { // and if there is no secondary action
+        if (!this->statusIndicators.proximityShearHome) { // and if shear is NOT in home position
+          if (!getShearCutStatus()) { // and if shear solenoid is NOT already turned on
             this->secondaryAction = SHEAR_RETRACT;
             retractShear();
+            return;
           }
+        }
+      }
+    }
 
     // If the shear is in the home position, and its solenoid is off, activate the solenoid to cut it
-    if (!this->statusIndicators.shearCut) // If SHEAR_CUT solenoid is off
-      if (this->statusIndicators.proximityShearHome) // And the shear is parked at home position
-        if (primaryAction == SHEAR) // And the primary action is to shear
-          if (this->secondaryAction == NA) // And there are no secondary actions in the queue
-        turnOnShearCut();
+    if (primaryAction == SHEAR) // If the primary action is to shear
+      if (!getShearCutStatus()) // and if the shear solenoid is off
+          if (this->secondaryAction == NA) { // And there are no secondary actions in the queue
+            turnOnShearCut();
+            return;
+          }
 
+    // Continue to shear until we reach the limit
+    if (primaryAction == SHEAR) // If the primary action is to shear
+      if (getShearCutStatus()) // and if the shear solenoid is on
+        if (this->statusIndicators.proximityShearCut) { // and if the shear reached its limit
+          turnOffShearCut(); // Turn off the shear
+          this->primaryAction = NONE; // We are done shearing
+          this->secondaryAction = SHEAR_RETRACT; // Retract the shear
+          retractShear();
+        }
   }
 
   void bendRebarCw() {
@@ -197,8 +236,19 @@ public:
 
   // Receipes
   bool checkReceipe(Recipe recipe);
+
   bool addReceipe(Recipe recipe);
-  void deleteReceipe(Recipe recipe);
+
+  void deleteReceipe(int id);
+
+  // INCOMPLETE
+  void processRecipeLine() {
+    // Are we done processing all the lines for the recipe?
+    if (this->recipeToProcess.getLinesCompleted() < this->recipeToProcess.getTotalLines())
+      // Get the next line to process
+      this->recipeToProcess.getline(this->recipeToProcess.getLinesCompleted());
+
+  }
 
   // Interrupt Service Routines
   // These are the ISRs (Interrupt Service Routines) for the rising edges as soon as the sensors trigger.
