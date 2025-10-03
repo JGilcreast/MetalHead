@@ -20,7 +20,7 @@
 #include "bend_direction_t.h"
 struct angle_t {
   // Another angle can proceed after this angle
-  struct angle_t* next;
+  struct angle_t *angle;
   // An angle has a preceding length before the rebar is bent
   uint16_t length;
   // An angle must be bent

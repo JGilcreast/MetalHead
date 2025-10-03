@@ -18,14 +18,17 @@
 #ifndef SHAPE_T_H
 #define SHAPE_T_H
 #include "angle_t.h"
+#include "bar_size_t.h"
 
 struct shape_t {
   // A shape can have one or more angles
   struct angle_t *angle;
+  // Quantity if the same shape
+  uint8_t quantity;
   // System-wide modifier, programmed from settings
   uint8_t feed_scale;
   // System adjustment for different sizes of rebar (4/8” vs 5/8”, etc)
-  uint8_t bar_size_modifier; // Should this be an enum for ease?
+  enum bar_size_t bar_size_modifier;
   // Bend compensation for different center pin sizes
   uint8_t center_pin_modifier; // Do we need more than a representation from 0 - 255 (uint8_t)
   // Bend compensation for different sizes of rebar

@@ -17,14 +17,12 @@
 
 #ifndef INTERFACE_T_H
 #define INTERFACE_T_H
-#include "status_indicators_t.pb.h"
 
 struct interface_t {
   enum state_t state; // Default state at startup
   enum primary_action_t primary_action; // Shear
   enum secondary_action_t secondary_action; // But before we can shear, retract the shear
   struct shape_t shape; // Current shape being processed
-  struct _status_indicators_t status_indicators; // Send to the HMI the status of I/O
 };
 
 #endif //INTERFACE_T_H

@@ -16,6 +16,7 @@
 
 #ifndef GPIO_INT_HANDLER_H
 #define GPIO_INT_HANDLER_H
+#include "interface.h"
 
 
 // To visually keep track of the number of interrupts
@@ -46,6 +47,12 @@ void gpio_interrupt_handler(struct device *port, struct gpio_callback *cb, gpio_
     // Dereference to assign high/low state
     *(pin->status_indicator_pin) = false;
   }
+
+  // Increment counters
+  if (pin->label_enum == ENCODER_FEED_SET || pin->label_enum == ENCODER_FEED_RESET)
+    status_indicators.encoder_feed_count++;
+  if (pin->label_enum == ENCODER_BEND_SET || pin->label_enum == ENCODER_BEND_RESET)
+    status_indicators.encoder_bend_count++;
 
   // Wake up thread(s)
   // Maybe wake up the recipe processor thread?

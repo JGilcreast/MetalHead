@@ -100,7 +100,7 @@
 	};
 	proximity_tool_in: proximity_tool_in {
 		compatible = "gpio";
-		gpios = <&piod 8 0>;
+		gpios = <&pioc 8 0>;
 		label = "PROXIMITY_TOOL_IN";
 	};
 	proximity_tool_out: proximity_tool_out {
@@ -139,12 +139,12 @@
 	// Auxillary
 	estop: estop {
 		compatible = "gpio";
-		gpios = <&pioc 16 0>;
+		gpios = <&pioc 16 1>; // The 1 will invert the active logic
 		label = "ESTOP";
 	};
 	fuse: fuse {
 		compatible = "gpio";
-		gpios = <&pioc 15 0>;
+		gpios = <&pioc 15 1>; // The 1 will invert the active logic
 		label = "FUSE";
 	};
 

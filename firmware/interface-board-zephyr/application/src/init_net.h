@@ -16,13 +16,7 @@
 
 #ifndef INIT_NET_H
 #define INIT_NET_H
-#include <zephyr/net/net_if.h>
-#include <zephyr/net/net_core.h>
-#include <zephyr/net/net_context.h>
-#include <zephyr/net/ethernet.h>
-#include <zephyr/net/ethernet_mgmt.h>
-#include <zephyr/net/net_mgmt.h>
-
+#include "threads.h"
 
 void init_net(){
   int err = 0;
@@ -51,9 +45,23 @@ void init_net(){
   if (err)
     LOG_ERR("Failed to set MAC address (%d)", err);
 
-  // Bring up the interface
-  net_if_up(iface);
+  if (!err) {
+    // Bring up the interface
+    net_if_up(iface);
+    // Start the UDP server thread
+    hmi_server_tid = k_thread_create(&hmi_server_thread_data,
+      hmi_server_stack_area, K_THREAD_STACK_SIZEOF(hmi_server_stack_area),
+      (k_thread_entry_t)hmi_server_thread, NULL, NULL, NULL,
+      K_PRIO_PREEMPT(5),0, K_NO_WAIT);
+    k_thread_name_set(hmi_server_tid, "hmi_server_thread");
 
+    // Start the UDP client thread
+    hmi_client_tid = k_thread_create(&hmi_client_thread_data,
+      hmi_client_stack_area, K_THREAD_STACK_SIZEOF(hmi_client_stack_area),
+      (k_thread_entry_t)hmi_client_thread, NULL, NULL, NULL,
+      K_PRIO_PREEMPT(5),0, K_NO_WAIT);
+    k_thread_name_set(hmi_client_tid, "hmi_client_thread");
+  }
 }
 
 #endif //INIT_NET_H

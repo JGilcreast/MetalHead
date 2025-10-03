@@ -14,20 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#ifndef THREAD_DEFINES_H
-#define THREAD_DEFINES_H
+#ifndef SEMAPHORES_H
+#define SEMAPHORES_H
 
-k_tid_t shape_processor_tid;
-k_tid_t hmi_server_tid;
-k_tid_t hmi_client_tid;
+// Signal mechanism for the hmi_client thread
+struct k_sem hmi_client_send_sem;
 
-K_THREAD_STACK_DEFINE(shape_processor_stack_area, 1024)
-struct k_thread shape_processor_thread_data;
-
-K_THREAD_STACK_DEFINE(hmi_server_stack_area, 1024)
-struct k_thread hmi_server_thread_data;
-
-K_THREAD_STACK_DEFINE(hmi_client_stack_area, 1024)
-struct k_thread hmi_client_thread_data;
-
-#endif //THREAD_DEFINES_H
+#endif //SEMAPHORES_H

@@ -23,6 +23,20 @@
 const struct device *eeprom;
 struct eeprom_data_map_t eeprom_data;
 
+bool is_valid_private_ip4_address(uint8_t ip[3]) {
+  // Class A: 10.0.0.0 through 10.255.255.255 (8)
+  // Class B: 172.16.0.0 through 172.31.255.255 (12)
+  // Class C: 192.168.0.0 through 192.168.255.255 (16)
+  return (ip[0] == 10 ||
+    ip[0] == 172 && ip[1] == 16 ||
+    ip[0] == 192 && ip[1] == 168);
+}
+
+bool is_valid_port(uint16_t port) {
+  // Only registered user ports
+  return (port >= 1024 && port <= 49151);
+}
+
 void init_eeprom(){
   int err;
   eeprom = DEVICE_DT_GET(DT_ALIAS(eeprom_0));
@@ -70,6 +84,25 @@ void init_eeprom(){
     else
       LOG_INF("EEPROM initialized!");
   } else {
+    // If you add a new variable to be stored into eeprom, add a condition here to check if it's valid.
+    // If not, set it to the default value
+    if (!is_valid_private_ip4_address(eeprom_data.hmi_ip_address)) {
+      LOG_ERR("HMI IP address in EEPROM is not valid! (%d.%d.%.d.%d)",
+        eeprom_data.hmi_ip_address[0], eeprom_data.hmi_ip_address[1],
+        eeprom_data.hmi_ip_address[2], eeprom_data.hmi_ip_address[3]);
+      LOG_INF("Resetting HMI IP address to 192.168.1.181");
+      // eeprom_data.hmi_ip_address[0] = 192;
+      // eeprom_data.hmi_ip_address[1] = 168;
+      // eeprom_data.hmi_ip_address[2] = 1;
+      // eeprom_data.hmi_ip_address[3] = 181;
+    }
+
+    if (!is_valid_port(eeprom_data.hmi_port)) {
+      LOG_ERR("EEPROM: HMI port is not valid! (%d)", eeprom_data.hmi_port);
+      // LOG_INF("Resetting HMI port to xxxx");
+      // eeprom_data.hmi_port = 3682;
+    }
+
     // Increase our boot count
     eeprom_data.boot_count++;
 
@@ -91,7 +124,12 @@ void init_eeprom(){
       eeprom_data.ip_address[2], eeprom_data.ip_address[3]);
     LOG_INF("EEPROM: Subnet Mask: %d.%d.%d.%d", eeprom_data.subnet_mask[0], eeprom_data.subnet_mask[1],
       eeprom_data.subnet_mask[2], eeprom_data.subnet_mask[3]);
+    LOG_INF("EEPROM: HMI IP Address: %d.%d.%d.%d", eeprom_data.hmi_ip_address[0],
+      eeprom_data.hmi_ip_address[1], eeprom_data.hmi_ip_address[2], eeprom_data.hmi_ip_address[3]);
+    LOG_INF("EEPROM: HMI Port: %d", eeprom_data.hmi_port);
   }
 }
+
+
 
 #endif //EEPROM_H

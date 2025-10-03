@@ -21,46 +21,62 @@
 #include <stdio.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/sys/hash_map.h>
+#include <zephyr/net/net_if.h>
+#include <zephyr/net/net_core.h>
+#include <zephyr/net/net_context.h>
+#include <zephyr/net/ethernet.h>
+#include <zephyr/net/ethernet_mgmt.h>
+#include <zephyr/net/net_mgmt.h>
+#include <zephyr/net/socket.h>
+#include <pb_encode.h>
 
 // Register logging interface
 LOG_MODULE_REGISTER(MetalHead, LOG_LEVEL_DBG);
 
 // Custom includes
-
+#include "semaphores.h"
+#include "threads.h"
 #include "gpio_dt_specs.h"
 #include "queues.h"
 #include "gpio_pin_t.h"
 #include "gpio_state_t.h"
 #include "gpio_int_handler.h"
+#include "interface.h"
 #include "init_gpio.h"
 #include "init_eeprom.h"
+#include "client.h"
+#include "server.h"
 #include "init_net.h"
 #include "init_current_mon.h"
-#include "interface.h"
-#include "threads.h"
 #include "version.h"
 
 
-int main(void)
+void main(void)
 {
   LOG_INF("MetalHead Interface Board Firmware v%d.%d.%d", MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION);
   LOG_INF("Build date: " __DATE__ " " __TIME__);
   LOG_INF("Copyright: Connor McMillan & John Gilcreast");
   LOG_INF("Project homepage: https://github.com/JGilcreast/MetalHead");
 
-  // check if led is ready
+  // Check if led is ready
   if (!device_is_ready(led_builtin.port))
-    return 1;
+    LOG_ERR("Builtin LED is not ready!");
 
   // configure led gpio pin as output and set initial value as Logical Active
   if (gpio_pin_configure_dt(&led_builtin, GPIO_OUTPUT_INACTIVE) < 0)
-    return 1;
+    LOG_ERR("Failed to configure LED as GPIO_OUTPUT_INACTIVE!");
 
   init_eeprom();
   init_gpio();
   init_net();
   init_current_monitors();
 
-  return 0;
+  // Start the shape processing thread
+  shape_processor_tid = k_thread_create(&shape_processor_thread_data,
+    shape_processor_stack_area, K_THREAD_STACK_SIZEOF(shape_processor_stack_area),
+    shape_process_thread, NULL, NULL, NULL, -5, 0, K_NO_WAIT);
+  k_thread_name_set(shape_processor_tid, "shape_processor_thread");
+
+
 }
 
