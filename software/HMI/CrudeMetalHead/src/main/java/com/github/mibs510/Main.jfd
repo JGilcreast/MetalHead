@@ -1,0 +1,624 @@
+JFDML JFormDesigner: "8.2.4.0.393" Java: "21.0.7" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+			"$columnCount": 8
+			"$rowCount": 6
+		} ) {
+			name: "mainFrame"
+			"title": "MetalHead HMI - Crude Edition"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "statusIndicatorsLabel"
+				"text": "Status Indicators"
+				"font": new java.awt.Font( "Inter", 1, 26 )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 2
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "solenoidsLabel"
+				"text": "Solenoids"
+				"font": new java.awt.Font( "Inter", 1, 20 )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"row": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "encodersLabel"
+				"text": "Encoders"
+				"font": new java.awt.Font( "Inter", 1, 20 )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 1
+				"row": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "proximitySensorLabel"
+				"text": "Proximity Sensors"
+				"font": new java.awt.Font( "Inter", 1, 20 )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 2
+				"row": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "buttonsLabel"
+				"text": "Buttons"
+				"font": new java.awt.Font( "Inter", 1, 20 )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 3
+				"row": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "currentMonitorLabel"
+				"text": "Current Monitors"
+				"font": new java.awt.Font( "Inter", 1, 20 )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 4
+				"row": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "miscLabel"
+				"text": "Misc"
+				"font": new java.awt.Font( "Inter", 1, 20 )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 5
+				"row": 1
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 3
+				"$rowCount": 5
+				"margin": new java.awt.Insets( 0, 10, 0, 0 )
+			} ) {
+				name: "solenoidsPanel"
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidShearCutCheckBox"
+					"text": "SHEAR CUT"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidShearHomeCheckBox"
+					"text": "SHEAR HOME"
+					"horizontalAlignment": 2
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"fill": 3
+					"column": 2
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidToolOutCheckBox"
+					"text": "TOOL OUT"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidToolInCheckBox"
+					"text": "TOOL IN"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 1
+					"fill": 3
+					"column": 2
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidFeedForwardCheckBox"
+					"text": "FEED FORWARD"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 2
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidFeedReverseCheckBox"
+					"text": "FEED REVERSE"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 2
+					"fill": 3
+					"column": 2
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidHeadCwCheckBox"
+					"text": "HEAD CW"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 3
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidHeadCcwCheckBox"
+					"text": "HEAD CCW"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 3
+					"fill": 3
+					"column": 2
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidHeadOutCheckBox"
+					"text": "HEAD OUT"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 4
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "solenoidHeadInCheckBox"
+					"text": "HEAD IN"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 4
+					"fill": 3
+					"column": 2
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"row": 2
+				"useParentLayout": false
+				"anchor": 1
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 3
+				"$rowCount": 4
+				"margin": new java.awt.Insets( 0, 10, 0, 0 )
+			} ) {
+				name: "encodersPanel"
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "encoderFeedSetCheckBox"
+					"text": "FEED SET"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "encoderFeedResetCheckBox"
+					"text": "FEED RESET"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"fill": 3
+					"column": 2
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "encoderBendSetCheckBox"
+					"text": "BEND SET"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "encoderBendResetCheckBox"
+					"text": "BEND RESET"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 1
+					"fill": 3
+					"column": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "encoderFeedCountLabel"
+					"text": "Encoder Feed Count:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 2
+					"column": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "encoderFeedCountValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 2
+					"row": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "encoderBendCountLabel"
+					"text": "Encoder Bend Count:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 3
+					"column": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "encoderBendCountValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 2
+					"row": 3
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 1
+				"row": 2
+				"anchor": 1
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 2
+				"$rowCount": 6
+			} ) {
+				name: "proximitySensorsPanel"
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityHeadOutCheckBox"
+					"text": "HEAD OUT"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityHeadInCheckBox"
+					"text": "HEAD IN"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityShearHomeCheckBox"
+					"text": "SHEAR HOME"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityShearCutCheckBox"
+					"text": "SHEAR CUT"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 1
+					"column": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityToolInCheckBox"
+					"text": "TOOL IN"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 2
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityToolOutCheckbox"
+					"text": "TOOL OUT"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 2
+					"column": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityHeadLimitCheckBox"
+					"text": "HEAD LIMIT"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 3
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityHeadCwCheckBox"
+					"text": "HEAD CW"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 3
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "proximityHeadCcwCheckBox"
+					"text": "HEAD CCW"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 4
+					"fill": 3
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 2
+				"row": 2
+				"anchor": 1
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 2
+				"$rowCount": 3
+			} ) {
+				name: "buttonsPanel"
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "buttonShearCheckBox"
+					"text": "SHEAR"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "buttonAutoCheckBox"
+					"text": "AUTO"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "buttonEstopCheckBox"
+					"text": "ESTOP"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 2
+					"fill": 3
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 3
+				"row": 2
+				"anchor": 1
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 2
+				"$rowCount": 12
+			} ) {
+				name: "currentMonitorsPanel"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "twentyFourVRawVoltLabel"
+					"text": "24VRAW:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "twentyFourVRawVoltValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "twentyFourVRawCurrentLabel"
+					"text": "24VRAW Current:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "twentyFourVRawCurrentValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "aux24vVoltLabel"
+					"text": "AUX24V:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 2
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "aux24vVoltValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "aux24vCurrentLabel"
+					"text": "AUX24V Current:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 3
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "aux24vCurrentValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "twelvevVoltLabel"
+					"text": "12V:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 4
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "twelvevVoltValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 4
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "twelvevCurrentLabel"
+					"text": "12V Current:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 5
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "twelvevCurrentValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 5
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "fivevVoltLabel"
+					"text": "5V:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 6
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "fivevVoltValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 6
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "fivevCurrentLabel"
+					"text": "5V Current:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 7
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "fivevCurrentValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 7
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "threevThreeVoltLabel"
+					"text": "3V3:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 8
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "threevThreeVoltValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 8
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "threevThreeCurrentLabel"
+					"text": "3V3 Current:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 9
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "threevThreeCurrentValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 9
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "fGndVoltLabel"
+					"text": "FGND:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 10
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "fGndVoltValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 10
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "fGndCurrentLabel"
+					"text": "FGND Current:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 11
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "fGndCurrentValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 11
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 4
+				"row": 2
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 2
+				"$rowCount": 8
+			} ) {
+				name: "miscPanel"
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "fuseCheckBox"
+					"text": "FUSE"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "twentyFourVRawCheckBox"
+					"text": "24VRAW"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 1
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JCheckBox" ) {
+					name: "auxTwentyFourVCheckBox"
+					"text": "AUX24V"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 2
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "bootCountLabel"
+					"text": "Boot Count:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"fill": 3
+					"row": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "bootCountValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"fill": 3
+					"row": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "serialNumberLabel"
+					"text": "Serial Number:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 4
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "serialNumberValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 4
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "macAddressLabel"
+					"text": "MAC Address:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 5
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "macAddressValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 5
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "ipAddressLabel"
+					"text": "IP Address:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 6
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "ipAddressValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 6
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "subnetMaskLabel"
+					"text": "Subnet Mask:"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"row": 7
+					"fill": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "subnetMaskValueLabel"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"column": 1
+					"row": 7
+					"fill": 3
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 5
+				"row": 2
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 1
+				"$rowCount": 1
+				"margin": new java.awt.Insets( 0, 0, 10, 0 )
+			} ) {
+				name: "sendShapePanel"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "sendShapeButton"
+					"text": "Send Shape"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+					"fill": 3
+				} )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"row": 4
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.intellij.uiDesigner.core.GridLayoutManager ) {
+				"$columnCount": 1
+				"$rowCount": 1
+				"margin": new java.awt.Insets( 0, 0, 10, 0 )
+			} ) {
+				name: "actionsButtonPanel"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "actionsButton"
+					"text": "Actions"
+				}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) )
+			}, new FormLayoutConstraints( class com.intellij.uiDesigner.core.GridConstraints ) {
+				"column": 2
+				"row": 4
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 20, 80 )
+			"size": new java.awt.Dimension( 1255, 505 )
+		} )
+	}
+}
