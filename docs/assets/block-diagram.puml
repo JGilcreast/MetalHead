@@ -66,11 +66,11 @@ rectangle "Interface Board"{
     rectangle Outputs{
     }
     usecase UART0
-    usecase UART1
+    usecase W5500_Ethernet
 }
 
-rectangle "SBC"{
-    usecase GPIO
+rectangle "Orange Pi Zero 2W"{
+    usecase Ethernet
     package "HMI"{
     }
     usecase USB
@@ -94,11 +94,11 @@ Solenoids <-- Outputs: GND/+24V
 Encoders --> Inputs: GND/+24V
 Buttons --> Inputs: GND/+24V
 Inputs <-- "Proximity Sensors": GND/+24V
-[UART1] --> [GPIO]: JSON Objects
+[W5500_Ethernet] --> [Ethernet]: TCP (nanopb)
 [UART0] --> [USB]: Debug + Firmware Updates
-[USB] <--> Keypad: JSON Objects + Firmware Updates
+[USB] <--> Keypad: Keypress Events + Firmware Updates
 [HMI] --> [USB]: /dev/ttyUSB*
-[HMI] --> [GPIO]: pi4j
+[HMI] --> [Ethernet]: TCP (protobuf)
 [HMI] --> Display: HDMI + USB
 "HMI" --> updates.metalhead.net
 [Interface Board] <-- EStop
