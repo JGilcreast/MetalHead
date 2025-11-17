@@ -1,0 +1,116 @@
+// Install protoc:
+// winget install protobuf
+// protoc --version # Ensure compiler version is 3+
+// Run:
+// cd C:\Users\User\Devel\MetalHead\software\test\interface-board-client-status-indicators\src\main\java\com\github\mibs510
+// >protoc --proto_path=.\ --java_out=.\StatusIndicators.proto
+
+// Follow the dos and donts: https://protobuf.dev/best-practices/dos-donts/
+
+syntax = "proto3";
+
+option java_package = "com.github.mibs510";
+option java_outer_classname = "HmiServerMsgProto";
+
+enum State {
+  STATE_UNKNOWN = 0;
+  STATE_IDLE = 1;
+  STATE_PROCESS_RECIPE = 2;
+  STATE_HOME = 3;
+  STATE_ESTOP = 4;
+  STATE_ERROR = 5;
+}
+
+enum Action {
+  ACTION_UNKNOWN = 0;
+  ACTION_SHEAR = 1;
+  ACTION_TOOL_OUT = 2;
+  ACTION_TOOL_IN = 3;
+  ACTION_FEED_FORWARD = 4;
+  ACTION_FEED_REVERSE = 5;
+  ACTION_HEAD_CW = 6;
+  ACTION_HEAD_CCW = 7;
+  ACTION_HEAD_OUT = 8;
+  ACTION_HEAD_IN = 9;
+  ACTION_SHEAR_RETRACT = 10;
+  ACTION_TOOL_RETRACT = 11;
+  ACTION_HEAD_RETRACT = 12;
+  ACTION_NONE = 13;
+}
+
+message HmiClientMsg {
+  bytes serialNumber = 1;
+  bytes macAddress = 2;
+  bytes ipAddress = 3;
+  bytes subnetMask = 4;
+  int32 port = 5;
+  bytes hmiIpAddress = 6;
+  int32 hmiPort = 7;
+  int32 majorVersion = 8;
+  int32 minorVersion = 9;
+  int32 patchVersion = 10;
+  int32 bootCount = 11;
+
+  bool shearCut = 12;
+  bool shearHome = 13;
+  bool toolOut = 14;
+  bool toolIn = 15;
+  bool feedForward = 16;
+  bool feedReverse = 17;
+  bool headCw = 18;
+  bool headCcw = 19;
+  bool headOut = 20;
+  bool headIn = 21;
+
+  bool encoderFeedSet = 22;
+  bool encoderFeedReset = 23;
+  bool encoderBendSet = 24;
+  bool encoderBendReset = 25;
+  bool proximityHeadOut = 26;
+  bool proximityHeadIn = 27;
+  bool proximityShearHome = 28;
+  bool proximityShearCut = 29;
+  bool proximityToolIn = 30;
+  bool proximityToolOut = 31;
+  bool shearButton = 32;
+  bool proximityHeadLimit = 33;
+  bool proximityHeadCw = 34;
+  bool proximityHeadCcw = 35;
+  bool autoButton = 36;
+  bool eStop = 37;
+  bool fuse = 38;
+  bool vRawTwentyFour = 39;
+  bool auxTwentyFourV = 40;
+
+  int32 encoderFeedCount = 41;
+  int32 encoderBendCount = 42;
+
+  float twentyFourVrawBusVoltage = 43;
+  float twentyFourVrawBusCurrent = 44;
+  float auxTwentyFourVBusVoltage = 45;
+  float auxTwentyFourVBusCurrent = 46;
+  float twelveVBusVoltage = 47;
+  float twelveVBusCurrent = 48;
+  float fiveVBusVoltage = 49;
+  float fiveVBusCurrent = 50;
+  float threeVThreeVBusVoltage = 51;
+  float threeVThreeVBusCurrent = 52;
+  float fGndBusVoltage = 53;
+  float fGndBusCurrent = 54;
+
+  State state = 55;
+  Action action = 56;
+}
+
+enum HmiServerResponse {
+  RESPONSE_UNKNOWN = 0;
+  RESPONSE_SUCCESS = 1;
+  RESPONSE_FAILURE = 2;
+}
+
+message HmiServerMsg {
+  oneof Payload {
+    HmiServerResponse hmiServerResponse = 1;
+    HmiClientMsg hmiClientMsg = 2;
+  }
+}

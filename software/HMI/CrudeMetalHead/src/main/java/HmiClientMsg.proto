@@ -1,0 +1,79 @@
+// Install protoc:
+// winget install protobuf
+// protoc --version # Ensure compiler version is 3+
+// Run:
+// cd C:\Users\User\Devel\MetalHead\software\test\interface-board-client-status-indicators\src\main\java\com\github\mibs510
+// >protoc --proto_path=.\ --java_out=.\StatusIndicators.proto
+
+// Follow the dos and donts: https://protobuf.dev/best-practices/dos-donts/
+
+syntax = "proto3";
+
+option java_package = "com.github.mibs510";
+option java_outer_classname = "HmiClientMsgProto";
+
+enum HmiClientAction {
+  ACTION_UNKNOWN = 0;
+  ACTION_REPEAT_LAST_RESPONSE = 1;
+  ACTION_HEAD_OUT = 2;
+  ACTION_HEAD_IN = 3;
+  ACTION_TOOL_OUT = 4;
+  ACTION_HEAD_LIMIT = 5;
+  ACTION_HEAD_CW = 6;
+  ACTION_HEAD_CCW = 7;
+  ACTION_FEED_FORWARD = 8;
+  ACTION_FEED_REVERSE = 9;
+  ACTION_ESTOP = 10;
+}
+
+enum BendDirection {
+  BEND_DIRECTION_UNKNOWN = 0;
+  BEND_DIRECTION_CW = 1;
+  BEND_DIRECTION_CCW = 2;
+}
+
+enum BarSize {
+  BAR_SIZE_UNKNOWN = 0;
+  BAR_SIZE_NUM3_3_8 = 1;
+  BAR_SIZE_NUM4_1_2 = 2;
+  BAR_SIZE_NUM5_5_8 = 3;
+  BAR_SIZE_NUM6_3_4 = 4;
+};
+
+message Angle {
+  // Another angle can proceed after this angle
+  optional Angle angle = 1;
+  // An angle has a preceding length before the rebar is bent
+  int32 length = 2; // 0 - 360
+  // An angle must be bent
+  int32 degrees = 3;
+  // Is it CW or CCW?
+  BendDirection direction = 4;
+  // Compensation programmed per line
+  int32 lengthCompensation = 5;
+  // Bend compensation programmed per line
+  int32 bendCompensation = 6;
+}
+
+message HmiClientShape {
+  // Each shape must have one angle to bend.
+  // It could be 0 degrees too!
+  Angle angle = 1;
+  // Quantity if the same shape
+  int32 quantity = 2;
+  // System-wide modifier, programmed from settings
+  int32 feedScale = 3;
+  // System adjustment for different sizes of rebar (4/8” vs 5/8”, etc)
+  BarSize barSizeModifier = 4;
+  // Bend compensation for different center pin sizes
+  int32 centerPinModifier = 5; // Do we need more than a representation from 0 - 255 (uint8_t)
+  // Bend compensation for different sizes of rebar
+  int32 barBendModifier = 6; // Do we need more than a representation from 0 - 255 (uint8_t)
+}
+
+message HmiClientMessage {
+  oneof payload {
+    HmiClientAction hmiClientAction = 1;
+    HmiClientShape hmiClientShape = 2;
+  }
+}
