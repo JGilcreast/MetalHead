@@ -23,12 +23,12 @@ struct __packed eeprom_data_map_t { // __packed tells the compiler not to add pa
   uint32_t magic_header; // A magic header will tell us if the eeprom has been initiated/valid content
   uint32_t boot_count;
   uint8_t serial_number[14];
-  uint8_t mac_address[6];
   uint8_t ip_address[4];
   uint8_t subnet_mask[4];
+  uint8_t mac_address[6];
+  uint16_t port;
   uint8_t hmi_ip_address[4];
   uint16_t hmi_port;
-  uint16_t port;
   // Place new variables to store into EEPROM below.
   // Once our product has been rolled out into the public, our data structure must respect them or bad things happen!
   // If a variable becomes obsolete, DO NOT DELETE OR CHANGE ITS DATA TYPE, you may rename it.

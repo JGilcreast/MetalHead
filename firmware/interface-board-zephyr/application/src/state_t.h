@@ -24,6 +24,7 @@ enum state_t {
   STATE_HOME,
   STATE_ESTOP,
   STATE_ERROR,
+  STATE_PAUSE
 };
 
 #endif //STATE_T_H

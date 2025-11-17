@@ -61,7 +61,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   shear_cut_gpio.label = DT_PROP(DT_NODELABEL(shear_cut), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  shear_cut_gpio.status_indicator_pin = &status_indicators.shear_cut;
+  shear_cut_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.shear_cut;
   // Check if the gpio is ready
   if (!device_is_ready(shear_cut_spec.port)) LOG_ERR("%s pin %d is not ready!",
     shear_cut_gpio.label, shear_cut_spec.pin);
@@ -74,7 +74,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   shear_home_gpio.label = DT_PROP(DT_NODELABEL(shear_home), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  shear_home_gpio.status_indicator_pin = &status_indicators.shear_home;
+  shear_home_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.shear_home;
   // Check if the gpio is ready
   if (!device_is_ready(shear_home_spec.port)) LOG_ERR("%s pin %d is not ready!",
     shear_home_gpio.label, shear_home_spec.pin);
@@ -87,7 +87,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   tool_out_gpio.label = DT_PROP(DT_NODELABEL(tool_out), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  tool_out_gpio.status_indicator_pin = &status_indicators.tool_out;
+  tool_out_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.tool_out;
   // Check if the gpio is ready
   if (!device_is_ready(tool_out_spec.port)) LOG_ERR("%s pin %d is not ready!",
     tool_out_gpio.label, tool_out_spec.pin);
@@ -100,7 +100,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   tool_in_gpio.label = DT_PROP(DT_NODELABEL(tool_in), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  tool_in_gpio.status_indicator_pin = &status_indicators.tool_in;
+  tool_in_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.tool_in;
   // Check if the gpio is ready
   if (!device_is_ready(tool_in_spec.port)) LOG_ERR("%s pin %d is not ready!",
     tool_in_gpio.label, tool_in_spec.pin);
@@ -113,7 +113,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   feed_forward_gpio.label = DT_PROP(DT_NODELABEL(feed_forward), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  feed_forward_gpio.status_indicator_pin = &status_indicators.feed_forward;
+  feed_forward_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.feed_forward;
   // Check if the gpio is ready
   if (!device_is_ready(feed_forward_spec.port)) LOG_ERR("%s pin %d is not ready!",
     feed_forward_gpio.label, feed_forward_spec.pin);
@@ -126,7 +126,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   feed_reverse_gpio.label = DT_PROP(DT_NODELABEL(feed_reverse), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  feed_reverse_gpio.status_indicator_pin = &status_indicators.feed_reverse;
+  feed_reverse_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.feed_reverse;
   // Check if the gpio is ready
   if (!device_is_ready(feed_reverse_spec.port)) LOG_ERR("%s pin %d is not ready!",
     feed_reverse_gpio.label, feed_reverse_spec.pin);
@@ -139,7 +139,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   head_cw_gpio.label = DT_PROP(DT_NODELABEL(head_cw), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  head_cw_gpio.status_indicator_pin = &status_indicators.head_cw;
+  head_cw_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.head_cw;
   // Check if the gpio is ready
   if (!device_is_ready(head_cw_spec.port)) LOG_ERR("%s pin %d is not ready!",
     head_cw_gpio.label, head_cw_spec.pin);
@@ -152,7 +152,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   head_ccw_gpio.label = DT_PROP(DT_NODELABEL(head_ccw), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  head_ccw_gpio.status_indicator_pin = &status_indicators.head_ccw;
+  head_ccw_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.head_ccw;
   // Check if the gpio is ready
   if (!device_is_ready(head_ccw_spec.port)) LOG_ERR("%s pin %d is not ready!",
     head_ccw_gpio.label, head_ccw_spec.pin);
@@ -165,7 +165,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   head_out_gpio.label = DT_PROP(DT_NODELABEL(head_out), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  head_out_gpio.status_indicator_pin = &status_indicators.head_out;
+  head_out_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.head_out;
   // Check if the gpio is ready
   if (!device_is_ready(head_out_spec.port)) LOG_ERR("%s pin %d is not ready!",
     head_out_gpio.label, head_out_spec.pin);
@@ -178,7 +178,7 @@ static void init_gpio(void) {
   // Set the pin label from the devicetree
   head_in_gpio.label = DT_PROP(DT_NODELABEL(head_in), label);
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  head_in_gpio.status_indicator_pin = &status_indicators.head_in;
+  head_in_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.head_in;
   // Check if the gpio is ready
   if (!device_is_ready(head_in_spec.port)) LOG_ERR("%s pin %d is not ready!",
     head_in_gpio.label, head_in_spec.pin);
@@ -193,7 +193,7 @@ static void init_gpio(void) {
   encoder_feed_set_gpio.label = DT_PROP(DT_NODELABEL(encoder_feed_set), label);
   encoder_feed_set_gpio.label_enum = ENCODER_FEED_SET;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  encoder_feed_set_gpio.status_indicator_pin = &status_indicators.encoder_feed_set;
+  encoder_feed_set_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.encoder_feed_set;
   // Check if the gpio is ready
   if (!device_is_ready(encoder_feed_set_spec.port)) LOG_ERR("%s pin %d is not ready!",
     encoder_feed_set_gpio.label, encoder_feed_set_spec.pin);
@@ -202,7 +202,7 @@ static void init_gpio(void) {
   if (err != 0) LOG_ERR("Error %d: failed to configure %s pin %d",
     err, encoder_feed_set_gpio.label, encoder_feed_set_spec.pin);
   // Enable interrupt for rising edges
-  err = gpio_pin_interrupt_configure_dt(&encoder_feed_set_spec, GPIO_INT_EDGE_RISING);
+  err = gpio_pin_interrupt_configure_dt(&encoder_feed_set_spec, GPIO_INT_EDGE_BOTH);
   if (err != 0) LOG_ERR("Error %d: failed to configure interrupt on %s pin %d",
     err, encoder_feed_set_gpio.label, encoder_feed_set_spec.pin);
   // Initialize callback structure for interrupt
@@ -216,7 +216,7 @@ static void init_gpio(void) {
   encoder_feed_reset_gpio.label = DT_PROP(DT_NODELABEL(encoder_feed_reset), label);
   encoder_feed_reset_gpio.label_enum = ENCODER_FEED_RESET;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  encoder_feed_reset_gpio.status_indicator_pin = &status_indicators.encoder_feed_reset;
+  encoder_feed_reset_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.encoder_feed_reset;
   // Check if the gpio is ready
   if (!device_is_ready(encoder_feed_reset_spec.port)) LOG_ERR("%s pin %d is not ready!",
     encoder_feed_reset_gpio.label, encoder_feed_reset_spec.pin);
@@ -225,7 +225,7 @@ static void init_gpio(void) {
   if (err != 0) LOG_ERR("Error %d: failed to configure %s pin %d",
     err, encoder_feed_reset_gpio.label, encoder_feed_reset_spec.pin);
   // Enable interrupt for rising edges
-  err = gpio_pin_interrupt_configure_dt(&encoder_feed_reset_spec, GPIO_INT_EDGE_RISING);
+  err = gpio_pin_interrupt_configure_dt(&encoder_feed_reset_spec, GPIO_INT_EDGE_BOTH);
   if (err != 0) LOG_ERR("Error %d: failed to configure interrupt on %s pin %d",
     err, encoder_feed_reset_gpio.label, encoder_feed_reset_spec.pin);
   // Initialize callback structure for interrupt
@@ -239,7 +239,7 @@ static void init_gpio(void) {
   encoder_bend_set_gpio.label = DT_PROP(DT_NODELABEL(encoder_bend_set), label);
   encoder_bend_set_gpio.label_enum = ENCODER_BEND_SET;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  encoder_bend_set_gpio.status_indicator_pin = &status_indicators.encoder_bend_set;
+  encoder_bend_set_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.encoder_bend_set;
   // Check if the gpio is ready
   if (!device_is_ready(encoder_bend_set_spec.port)) LOG_ERR("%s pin %d is not ready!",
     encoder_bend_set_gpio.label, encoder_bend_set_spec.pin);
@@ -248,7 +248,7 @@ static void init_gpio(void) {
   if (err != 0) LOG_ERR("Error %d: failed to configure %s pin %d",
     err, encoder_bend_set_gpio.label, encoder_bend_set_spec.pin);
   // Enable interrupt for rising edges
-  err = gpio_pin_interrupt_configure_dt(&encoder_bend_set_spec, GPIO_INT_EDGE_RISING);
+  err = gpio_pin_interrupt_configure_dt(&encoder_bend_set_spec, GPIO_INT_EDGE_BOTH);
   if (err != 0) LOG_ERR("Error %d: failed to configure interrupt on %s pin %d",
     err, encoder_bend_set_gpio.label, encoder_bend_set_spec.pin);
   // Initialize callback structure for interrupt
@@ -262,7 +262,7 @@ static void init_gpio(void) {
   encoder_bend_reset_gpio.label = DT_PROP(DT_NODELABEL(encoder_bend_reset), label);
   encoder_bend_reset_gpio.label_enum = ENCODER_BEND_RESET;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  encoder_bend_reset_gpio.status_indicator_pin = &status_indicators.encoder_bend_reset;
+  encoder_bend_reset_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.encoder_bend_reset;
   // Check if the gpio is ready
   if (!device_is_ready(encoder_bend_reset_spec.port)) LOG_ERR("%s pin %d is not ready!",
     encoder_bend_reset_gpio.label, encoder_bend_reset_spec.pin);
@@ -271,7 +271,7 @@ static void init_gpio(void) {
   if (err != 0) LOG_ERR("Error %d: failed to configure %s pin %d",
     err, encoder_bend_reset_gpio.label, encoder_bend_reset_spec.pin);
   // Enable interrupt for rising edges
-  err = gpio_pin_interrupt_configure_dt(&encoder_bend_reset_spec, GPIO_INT_EDGE_RISING);
+  err = gpio_pin_interrupt_configure_dt(&encoder_bend_reset_spec, GPIO_INT_EDGE_BOTH);
   if (err != 0) LOG_ERR("Error %d: failed to configure interrupt on %s pin %d",
     err, encoder_bend_reset_gpio.label, encoder_bend_reset_spec.pin);
   // Initialize callback structure for interrupt
@@ -285,7 +285,7 @@ static void init_gpio(void) {
   proximity_head_out_gpio.label = DT_PROP(DT_NODELABEL(proximity_head_out), label);
   proximity_head_out_gpio.label_enum = PROXIMITY_HEAD_OUT;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_head_out_gpio.status_indicator_pin = &status_indicators.proximity_head_out;
+  proximity_head_out_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_head_out;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_head_out_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_head_out_gpio.label, proximity_head_out_spec.pin);
@@ -308,7 +308,7 @@ static void init_gpio(void) {
   proximity_head_in_gpio.label = DT_PROP(DT_NODELABEL(proximity_head_in), label);
   proximity_head_in_gpio.label_enum = PROXIMITY_HEAD_IN;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_head_in_gpio.status_indicator_pin = &status_indicators.proximity_head_in;
+  proximity_head_in_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_head_in;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_head_in_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_head_in_gpio.label, proximity_head_in_spec.pin);
@@ -331,7 +331,7 @@ static void init_gpio(void) {
   proximity_shear_home_gpio.label = DT_PROP(DT_NODELABEL(proximity_shear_home), label);
   proximity_shear_home_gpio.label_enum = PROXIMITY_SHEAR_HOME;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_shear_home_gpio.status_indicator_pin = &status_indicators.proximity_shear_home;
+  proximity_shear_home_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_shear_home;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_shear_home_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_shear_home_gpio.label, proximity_shear_home_spec.pin);
@@ -354,7 +354,7 @@ static void init_gpio(void) {
   proximity_shear_cut_gpio.label = DT_PROP(DT_NODELABEL(proximity_shear_cut), label);
   proximity_shear_cut_gpio.label_enum = PROXIMITY_SHEAR_CUT;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_shear_cut_gpio.status_indicator_pin = &status_indicators.proximity_shear_cut;
+  proximity_shear_cut_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_shear_cut;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_shear_cut_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_shear_cut_gpio.label, proximity_shear_cut_spec.pin);
@@ -377,7 +377,7 @@ static void init_gpio(void) {
   proximity_tool_in_gpio.label = DT_PROP(DT_NODELABEL(proximity_tool_in), label);
   proximity_tool_in_gpio.label_enum = PROXIMITY_TOOL_IN;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_tool_in_gpio.status_indicator_pin = &status_indicators.proximity_tool_in;
+  proximity_tool_in_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_tool_in;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_tool_in_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_tool_in_gpio.label, proximity_tool_in_spec.pin);
@@ -400,7 +400,7 @@ static void init_gpio(void) {
   proximity_tool_out_gpio.label = DT_PROP(DT_NODELABEL(proximity_tool_out), label);
   proximity_tool_out_gpio.label_enum = PROXIMITY_TOOL_OUT;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_tool_out_gpio.status_indicator_pin = &status_indicators.proximity_tool_out;
+  proximity_tool_out_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_tool_out;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_tool_out_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_tool_out_gpio.label, proximity_tool_out_spec.pin);
@@ -423,7 +423,7 @@ static void init_gpio(void) {
   proximity_head_limit_gpio.label = DT_PROP(DT_NODELABEL(proximity_head_limit), label);
   proximity_head_limit_gpio.label_enum = PROXIMITY_HEAD_LIMIT;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_head_limit_gpio.status_indicator_pin = &status_indicators.proximity_head_limit;
+  proximity_head_limit_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_head_limit;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_head_limit_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_head_limit_gpio.label, proximity_head_limit_spec.pin);
@@ -446,7 +446,7 @@ static void init_gpio(void) {
   proximity_head_cw_gpio.label = DT_PROP(DT_NODELABEL(proximity_head_cw), label);
   proximity_head_cw_gpio.label_enum = PROXIMITY_HEAD_CW;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_head_cw_gpio.status_indicator_pin = &status_indicators.proximity_head_cw;
+  proximity_head_cw_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_head_cw;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_head_cw_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_head_cw_gpio.label, proximity_head_cw_spec.pin);
@@ -469,7 +469,7 @@ static void init_gpio(void) {
   proximity_head_ccw_gpio.label = DT_PROP(DT_NODELABEL(proximity_head_ccw), label);
   proximity_head_ccw_gpio.label_enum = PROXIMITY_HEAD_CCW;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  proximity_head_ccw_gpio.status_indicator_pin = &status_indicators.proximity_head_ccw;
+  proximity_head_ccw_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.proximity_head_ccw;
   // Check if the gpio is ready
   if (!device_is_ready(proximity_head_ccw_spec.port)) LOG_ERR("%s pin %d is not ready!",
     proximity_head_ccw_gpio.label, proximity_head_ccw_spec.pin);
@@ -493,7 +493,7 @@ static void init_gpio(void) {
   shear_button_gpio.label = DT_PROP(DT_NODELABEL(shear_button), label);
   shear_button_gpio.label_enum = SHEAR_BUTTON;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  shear_button_gpio.status_indicator_pin = &status_indicators.shear_button;
+  shear_button_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.shear_button;
   // Check if the gpio is ready
   if (!device_is_ready(shear_button_spec.port)) LOG_ERR("%s pin %d is not ready!",
     shear_button_gpio.label, shear_button_spec.pin);
@@ -516,7 +516,7 @@ static void init_gpio(void) {
   auto_button_gpio.label = DT_PROP(DT_NODELABEL(auto_button), label);
   auto_button_gpio.label_enum = AUTO_BUTTON;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  auto_button_gpio.status_indicator_pin = &status_indicators.auto_button;
+  auto_button_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.auto_button;
   // Check if the gpio is ready
   if (!device_is_ready(auto_button_spec.port)) LOG_ERR("%s pin %d is not ready!",
     auto_button_gpio.label, auto_button_spec.pin);
@@ -540,7 +540,7 @@ static void init_gpio(void) {
   estop_gpio.label = DT_PROP(DT_NODELABEL(estop), label);
   estop_gpio.label_enum = ESTOP;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  estop_gpio.status_indicator_pin = &status_indicators.e_stop;
+  estop_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.e_stop;
   // Check if the gpio is ready
   if (!device_is_ready(estop_spec.port)) LOG_ERR("%s pin %d is not ready!",
     estop_gpio.label, estop_spec.pin);
@@ -563,7 +563,7 @@ static void init_gpio(void) {
   fuse_gpio.label = DT_PROP(DT_NODELABEL(fuse), label);
   fuse_gpio.label_enum = FUSE;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  fuse_gpio.status_indicator_pin = &status_indicators.fuse;
+  fuse_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.fuse;
   // Check if the gpio is ready
   if (!device_is_ready(fuse_spec.port)) LOG_ERR("%s pin %d is not ready!",
     fuse_gpio.label, fuse_spec.pin);
@@ -587,7 +587,7 @@ static void init_gpio(void) {
   vraw24_gpio.label = DT_PROP(DT_NODELABEL(vraw24), label);
   vraw24_gpio.label_enum = RAW24V;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  vraw24_gpio.status_indicator_pin = &status_indicators.vraw24;
+  vraw24_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.vraw24;
   // Check if the gpio is ready
   if (!device_is_ready(vraw24_spec.port)) LOG_ERR("%s pin %d is not ready!",
     vraw24_gpio.label, vraw24_spec.pin);
@@ -610,7 +610,7 @@ static void init_gpio(void) {
   aux24v_gpio.label = DT_PROP(DT_NODELABEL(aux24v), label);
   aux24v_gpio.label_enum = AUX24V;
   // This allows gpio_interrupt_handler to directly manipulate the interface structure
-  aux24v_gpio.status_indicator_pin = &status_indicators.aux24v;
+  aux24v_gpio.status_indicator_pin = &hmi_server_msg.payload.hmi_client_msg.aux24v;
   // Check if the gpio is ready
   if (!device_is_ready(aux24v_spec.port)) LOG_ERR("%s pin %d is not ready!",
     aux24v_gpio.label, aux24v_spec.pin);
@@ -627,6 +627,9 @@ static void init_gpio(void) {
     BIT(aux24v_spec.pin));
   // Attach callback function to interrupt
   gpio_add_callback(aux24v_spec.port, &aux24v_gpio.cb);
+
+  // Update statuses once at startup
+  update_status_indicators();
 
   LOG_INF("Done initalizing GPIO pins");
 }

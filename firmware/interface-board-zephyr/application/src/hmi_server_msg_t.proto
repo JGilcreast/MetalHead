@@ -1,0 +1,124 @@
+// MetalHead - Opensource Firmware & Software For The 85V Automatic Stirrup Bender
+// Copyright (C) 2025 Connor McMillan (connor@mcmillan.website)
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+// Follow the dos and donts: https://protobuf.dev/best-practices/dos-donts/
+
+syntax = "proto3";
+import "nanopb.proto";
+
+
+enum state_t {
+    STATE_UNKNOWN = 0;
+    STATE_IDLE = 1;
+    STATE_PROCESS_RECIPE = 2;
+    STATE_HOME = 3;
+    STATE_ESTOP = 4;
+    STATE_ERROR = 5;
+}
+
+enum action_t {
+    ACTION_UNKNOWN = 0;
+    ACTION_SHEAR = 1;
+    ACTION_TOOL_OUT = 2;
+    ACTION_TOOL_IN = 3;
+    ACTION_FEED_FORWARD = 4;
+    ACTION_FEED_REVERSE = 5;
+    ACTION_HEAD_CW = 6;
+    ACTION_HEAD_CCW = 7;
+    ACTION_HEAD_OUT = 8;
+    ACTION_HEAD_IN = 9;
+    ACTION_SHEAR_RETRACT = 10;
+    ACTION_TOOL_RETRACT = 11;
+    ACTION_HEAD_RETRACT = 12;
+    ACTION_NONE = 13;
+}
+
+message hmi_server_message_t {
+  bytes serial_number = 1 [(nanopb).max_size = 14];
+  bytes mac_address = 2 [(nanopb).max_size = 6];
+  bytes ip_address = 3 [(nanopb).max_size = 4];
+  bytes subnet_mask = 4 [(nanopb).max_size = 4];
+  int32 port = 5;
+  bytes hmi_ip_address = 6 [(nanopb).max_size = 4];
+  int32 hmi_port = 7;
+  int32 major_version = 8;
+  int32 minor_version = 9;
+  int32 patch_version = 10;
+  int32 boot_count = 11;
+
+  bool shear_cut = 12;
+  bool shear_home = 13;
+  bool tool_out = 14;
+  bool tool_in = 15;
+  bool feed_forward = 16;
+  bool feed_reverse = 17;
+  bool head_cw = 18;
+  bool head_ccw = 19;
+  bool head_out = 20;
+  bool head_in = 21;
+
+  bool encoder_feed_set = 22;
+  bool encoder_feed_reset = 23;
+  bool encoder_bend_set = 24;
+  bool encoder_bend_reset = 25;
+  bool proximity_head_out = 26;
+  bool proximity_head_in = 27;
+  bool proximity_shear_home = 28;
+  bool proximity_shear_cut = 29;
+  bool proximity_tool_in = 30;
+  bool proximity_tool_out = 31;
+  bool shear_button = 32;
+  bool proximity_head_limit = 33;
+  bool proximity_head_cw = 34;
+  bool proximity_head_ccw = 35;
+  bool auto_button = 36;
+  bool e_stop = 37;
+  bool fuse = 38;
+  bool vraw24 = 39;
+  bool aux24v = 40;
+
+  int32 encoder_feed_count = 41;
+  int32 encoder_bend_count = 42;
+
+  float twenty_four_vraw_bus_voltage = 43;
+  float twenty_four_vraw_bus_current = 44;
+  float aux_twenty_four_v_bus_voltage = 45;
+  float aux_twenty_four_v_bus_current = 46;
+  float twelve_v_bus_voltage = 47;
+  float twelve_v_bus_current = 48;
+  float five_v_bus_voltage = 49;
+  float five_v_bus_current = 50;
+  float three_v_three_v_bus_voltage = 51;
+  float three_v_three_v_bus_current = 52;
+  float f_gnd_bus_voltage = 53;
+  float f_gnd_bus_current = 54;
+
+  state_t state = 55;
+  action_t action = 56;
+}
+
+enum hmi_server_response_t {
+  RESPONSE_UNKNOWN = 0;
+  RESPONSE_SUCCESS = 1;
+  RESPONSE_FAILURE = 2;
+}
+
+message hmi_server_message {
+  oneof payload {
+    hmi_server_response_t hmi_server_response = 1;
+    hmi_server_message_t hmi_client_msg = 2;
+  }
+}

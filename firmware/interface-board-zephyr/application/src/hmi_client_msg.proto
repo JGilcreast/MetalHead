@@ -1,0 +1,85 @@
+// MetalHead - Opensource Firmware & Software For The 85V Automatic Stirrup Bender
+// Copyright (C) 2025 Connor McMillan (connor@mcmillan.website)
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+// Follow the dos and donts: https://protobuf.dev/best-practices/dos-donts/
+
+syntax = "proto3";
+
+enum hmi_client_action_t {
+  ACTION_UNKNOWN = 0;
+  ACTION_REPEAT_LAST_RESPONSE = 1;
+  ACTION_HEAD_OUT = 2;
+  ACTION_HEAD_IN = 3;
+  ACTION_TOOL_OUT = 4;
+  ACTION_HEAD_LIMIT = 5;
+  ACTION_HEAD_CW = 6;
+  ACTION_HEAD_CCW = 7;
+  ACTION_FEED_FORWARD = 8;
+  ACTION_FEED_REVERSE = 9;
+  ACTION_ESTOP = 10;
+}
+
+enum bend_direction_t {
+  BEND_DIRECTION_UNKNOWN = 0;
+  BEND_DIRECTION_CW = 1;
+  BEND_DIRECTION_CCW = 2;
+}
+
+enum bar_size_t {
+  BAR_SIZE_UNKNOWN = 0;
+  BAR_SIZE_NUM3_3_8 = 1;
+  BAR_SIZE_NUM4_1_2 = 2;
+  BAR_SIZE_NUM5_5_8 = 3;
+  BAR_SIZE_NUM6_3_4 = 4;
+};
+
+message angle_t {
+  // Another angle can proceed after this angle
+  optional angle_t angle = 1;
+  // An angle has a preceding length before the rebar is bent
+  int32 length = 2; // 0 - 360
+  // An angle must be bent
+  int32 degrees = 3;
+  // Is it CW or CCW?
+  bend_direction_t direction = 4;
+  // Compensation programmed per line
+  int32 length_compensation = 5;
+  // Bend compensation programmed per line
+  int32 bend_compensation = 6;
+}
+
+message hmi_client_shape_t {
+  // Each shape must have one angle to bend.
+  // It could be 0 degrees too!
+  angle_t angle = 1;
+  // Quantity if the same shape
+  int32 quantity = 2;
+  // System-wide modifier, programmed from settings
+  int32 feed_scale = 3;
+  // System adjustment for different sizes of rebar (4/8” vs 5/8”, etc)
+  bar_size_t bar_size_modifier = 4;
+  // Bend compensation for different center pin sizes
+  int32 center_pin_modifier = 5; // Do we need more than a representation from 0 - 255 (uint8_t)
+  // Bend compensation for different sizes of rebar
+  int32 bar_bend_modifier = 6; // Do we need more than a representation from 0 - 255 (uint8_t)
+}
+
+message hmi_client_message {
+  oneof payload {
+    hmi_client_action_t hmi_client_action = 1;
+    hmi_client_shape_t hmi_client_shape = 2;
+  }
+}

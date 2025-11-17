@@ -182,6 +182,16 @@
 		current-lsb-microamps = <457>;  // Example: 457 uA/LSB (15A)
 		// Other configurations like bus-voltage-resistor etc.
 	};
+	ina3221_0: ina3221@41 {
+		compatible = "ti,ina3221";
+		reg = <0x41>; // I2C address
+		label = "TRI-VBUS";
+		conv-time-shunt = <4>; // 1.1mS
+		conv-time-bus = <4>; // 1.1mS
+		avg-mode = <0>; // 1 sample
+		enable-channel = <1 1 1>; // Channels 1-3
+		shunt-resistors = <2 2 2>; // mOhms for channels 1-3
+	};
 };
 
 &spi0 {

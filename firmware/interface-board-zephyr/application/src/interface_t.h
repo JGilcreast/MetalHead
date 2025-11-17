@@ -23,6 +23,10 @@ struct interface_t {
   enum primary_action_t primary_action; // Shear
   enum secondary_action_t secondary_action; // But before we can shear, retract the shear
   struct shape_t shape; // Current shape being processed
+  // These two are used to hold the count before pausing
+  // so we can detect potential operator tampering before continuing
+  int previous_encoder_feed_count;
+  int previous_encoder_bend_count;
 };
 
 #endif //INTERFACE_T_H

@@ -16,8 +16,6 @@
 
 #ifndef EEPROM_H
 #define EEPROM_H
-#include <zephyr/drivers/eeprom.h>
-#include <zephyr/random/random.h>
 #include "eeprom_data_map_t.h"
 
 const struct device *eeprom;
@@ -28,8 +26,8 @@ bool is_valid_private_ip4_address(uint8_t ip[3]) {
   // Class B: 172.16.0.0 through 172.31.255.255 (12)
   // Class C: 192.168.0.0 through 192.168.255.255 (16)
   return (ip[0] == 10 ||
-    ip[0] == 172 && ip[1] == 16 ||
-    ip[0] == 192 && ip[1] == 168);
+    (ip[0] == 172 && ip[1] == 16) ||
+    (ip[0] == 192 && ip[1] == 168));
 }
 
 bool is_valid_port(uint16_t port) {
@@ -56,9 +54,19 @@ void init_eeprom(){
     eeprom_data.magic_header = 0xDEADBEEF;
     eeprom_data.boot_count = 0;
 
-    // Serial number format: We need to establish a serial number format + a method to change once
+    // Serial number format: We need to establish a serial number format + a method to change it
     for (int i = 0; i < sizeof(eeprom_data.serial_number); i++)
       eeprom_data.serial_number[i] = 0; // 0's for now
+
+    eeprom_data.ip_address[0] = 192;
+    eeprom_data.ip_address[1] = 168;
+    eeprom_data.ip_address[2] = 1;
+    eeprom_data.ip_address[3] = 36;
+
+    eeprom_data.subnet_mask[0] = 255;
+    eeprom_data.subnet_mask[1] = 255;
+    eeprom_data.subnet_mask[2] = 255;
+    eeprom_data.subnet_mask[3] = 0;
 
     // Arduino AG first 3 bytes assigned: A8:61:0A
     eeprom_data.mac_address[0] = 0xA8;
@@ -68,40 +76,22 @@ void init_eeprom(){
     eeprom_data.mac_address[4] = sys_rand8_get();
     eeprom_data.mac_address[5] = sys_rand8_get();
 
-    eeprom_data.ip_address[0] = 192;
-    eeprom_data.ip_address[1] = 168;
-    eeprom_data.ip_address[2] = 1;
-    eeprom_data.ip_address[3] = 101;
+    eeprom_data.port = 9214;
 
-    eeprom_data.subnet_mask[0] = 255;
-    eeprom_data.subnet_mask[1] = 255;
-    eeprom_data.subnet_mask[2] = 255;
-    eeprom_data.subnet_mask[3] = 0;
+    eeprom_data.hmi_ip_address[0] = 192;
+    eeprom_data.hmi_ip_address[1] = 168;
+    eeprom_data.hmi_ip_address[2] = 1;
+    eeprom_data.hmi_ip_address[3] = 184;
 
+    eeprom_data.hmi_port = 43669;
+
+    // Write default values into eeprom
     err = eeprom_write(eeprom, 0, &eeprom_data, sizeof(eeprom_data));
     if (err)
       LOG_ERR("EEPROM init write failed!");
     else
       LOG_INF("EEPROM initialized!");
   } else {
-    // If you add a new variable to be stored into eeprom, add a condition here to check if it's valid.
-    // If not, set it to the default value
-    if (!is_valid_private_ip4_address(eeprom_data.hmi_ip_address)) {
-      LOG_ERR("HMI IP address in EEPROM is not valid! (%d.%d.%.d.%d)",
-        eeprom_data.hmi_ip_address[0], eeprom_data.hmi_ip_address[1],
-        eeprom_data.hmi_ip_address[2], eeprom_data.hmi_ip_address[3]);
-      LOG_INF("Resetting HMI IP address to 192.168.1.181");
-      // eeprom_data.hmi_ip_address[0] = 192;
-      // eeprom_data.hmi_ip_address[1] = 168;
-      // eeprom_data.hmi_ip_address[2] = 1;
-      // eeprom_data.hmi_ip_address[3] = 181;
-    }
-
-    if (!is_valid_port(eeprom_data.hmi_port)) {
-      LOG_ERR("EEPROM: HMI port is not valid! (%d)", eeprom_data.hmi_port);
-      // LOG_INF("Resetting HMI port to xxxx");
-      // eeprom_data.hmi_port = 3682;
-    }
 
     // Increase our boot count
     eeprom_data.boot_count++;
@@ -124,12 +114,10 @@ void init_eeprom(){
       eeprom_data.ip_address[2], eeprom_data.ip_address[3]);
     LOG_INF("EEPROM: Subnet Mask: %d.%d.%d.%d", eeprom_data.subnet_mask[0], eeprom_data.subnet_mask[1],
       eeprom_data.subnet_mask[2], eeprom_data.subnet_mask[3]);
+    LOG_INF("EEPROM: Port: %d", eeprom_data.port);
     LOG_INF("EEPROM: HMI IP Address: %d.%d.%d.%d", eeprom_data.hmi_ip_address[0],
       eeprom_data.hmi_ip_address[1], eeprom_data.hmi_ip_address[2], eeprom_data.hmi_ip_address[3]);
     LOG_INF("EEPROM: HMI Port: %d", eeprom_data.hmi_port);
   }
 }
-
-
-
 #endif //EEPROM_H

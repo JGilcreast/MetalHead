@@ -48,19 +48,26 @@ void init_net(){
   if (!err) {
     // Bring up the interface
     net_if_up(iface);
-    // Start the UDP server thread
-    hmi_server_tid = k_thread_create(&hmi_server_thread_data,
-      hmi_server_stack_area, K_THREAD_STACK_SIZEOF(hmi_server_stack_area),
-      (k_thread_entry_t)hmi_server_thread, NULL, NULL, NULL,
-      K_PRIO_PREEMPT(5),0, K_NO_WAIT);
-    k_thread_name_set(hmi_server_tid, "hmi_server_thread");
+    // // Start the UDP server thread
+    // hmi_server_tid = k_thread_create(&hmi_server_thread_data,
+    //   hmi_server_stack_area, K_THREAD_STACK_SIZEOF(hmi_server_stack_area),
+    //   (k_thread_entry_t)hmi_server_thread, NULL, NULL, NULL,
+    //   K_PRIO_PREEMPT(5),0, K_NO_WAIT);
+    // k_thread_name_set(hmi_server_tid, "hmi_server_thread");
 
     // Start the UDP client thread
-    hmi_client_tid = k_thread_create(&hmi_client_thread_data,
-      hmi_client_stack_area, K_THREAD_STACK_SIZEOF(hmi_client_stack_area),
-      (k_thread_entry_t)hmi_client_thread, NULL, NULL, NULL,
+    // hmi_client_tid = k_thread_create(&hmi_client_thread_data,
+    //   hmi_client_stack_area, K_THREAD_STACK_SIZEOF(hmi_client_stack_area),
+    //   (k_thread_entry_t)hmi_client_thread, NULL, NULL, NULL,
+    //   K_PRIO_PREEMPT(5),0, K_NO_WAIT);
+    // k_thread_name_set(hmi_client_tid, "hmi_client_thread");
+
+    // Start the async TCP server thread
+    async_tcp_server_tid = k_thread_create(&async_tcp_server_thread_data,
+      async_tcp_server_stack_area, K_THREAD_STACK_SIZEOF(async_tcp_server_stack_area),
+      (k_thread_entry_t)async_tcp_server_thread, NULL, NULL, NULL,
       K_PRIO_PREEMPT(5),0, K_NO_WAIT);
-    k_thread_name_set(hmi_client_tid, "hmi_client_thread");
+    k_thread_name_set(async_tcp_server_tid, "async_tcp_server_thread");
   }
 }
 

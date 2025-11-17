@@ -29,6 +29,10 @@
 #include <zephyr/net/net_mgmt.h>
 #include <zephyr/net/socket.h>
 #include <pb_encode.h>
+#include <zephyr/drivers/eeprom.h>
+#include <zephyr/random/random.h>
+#include <zephyr/drivers/sensor.h>
+#include <zephyr/posix/fcntl.h>
 
 // Register logging interface
 LOG_MODULE_REGISTER(MetalHead, LOG_LEVEL_DBG);
@@ -40,14 +44,14 @@ LOG_MODULE_REGISTER(MetalHead, LOG_LEVEL_DBG);
 #include "queues.h"
 #include "gpio_pin_t.h"
 #include "gpio_state_t.h"
+#include "init_current_mon.h"
+#include "async_tcp_server.h"
+#include "update_status_indicators.h"
 #include "gpio_int_handler.h"
 #include "interface.h"
 #include "init_gpio.h"
 #include "init_eeprom.h"
-#include "client.h"
-#include "server.h"
 #include "init_net.h"
-#include "init_current_mon.h"
 #include "version.h"
 
 
@@ -76,7 +80,5 @@ void main(void)
     shape_processor_stack_area, K_THREAD_STACK_SIZEOF(shape_processor_stack_area),
     shape_process_thread, NULL, NULL, NULL, -5, 0, K_NO_WAIT);
   k_thread_name_set(shape_processor_tid, "shape_processor_thread");
-
-
 }
 

@@ -20,14 +20,22 @@
 k_tid_t shape_processor_tid;
 k_tid_t hmi_server_tid;
 k_tid_t hmi_client_tid;
+k_tid_t current_monitor_tid;
+k_tid_t async_tcp_server_tid;
 
 K_THREAD_STACK_DEFINE(shape_processor_stack_area, 1024)
 struct k_thread shape_processor_thread_data;
 
-K_THREAD_STACK_DEFINE(hmi_server_stack_area, 1024)
+K_THREAD_STACK_DEFINE(hmi_server_stack_area, 2048)
 struct k_thread hmi_server_thread_data;
 
-K_THREAD_STACK_DEFINE(hmi_client_stack_area, 1024)
+K_THREAD_STACK_DEFINE(hmi_client_stack_area, 2048)
 struct k_thread hmi_client_thread_data;
+
+K_THREAD_STACK_DEFINE(current_monitor_stack_area, 1024)
+struct k_thread current_monitor_thread_data;
+
+K_THREAD_STACK_DEFINE(async_tcp_server_stack_area, 2048)
+struct k_thread async_tcp_server_thread_data;
 
 #endif //THREAD_DEFINES_H
