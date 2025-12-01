@@ -25,7 +25,7 @@ public class MetalHeadHMI extends JFrame {
         hmiFrame.setLocationRelativeTo(null);
         // Show the GUI
         hmiFrame.setVisible(true);
-        // If we click on the X on the top right, close it
+        // If we click on the X on the top right, kill the process
         hmiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Pad the size of the frame (hmiFrame) to accommodate the text/labels within
         // hmiFrame.pack();

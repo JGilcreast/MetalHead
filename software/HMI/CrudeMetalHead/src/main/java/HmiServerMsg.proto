@@ -2,8 +2,8 @@
 // winget install protobuf
 // protoc --version # Ensure compiler version is 3+
 // Run:
-// cd C:\Users\User\Devel\MetalHead\software\test\interface-board-client-status-indicators\src\main\java\com\github\mibs510
-// >protoc --proto_path=.\ --java_out=.\StatusIndicators.proto
+// cd C:\Some\Path\To\MetalHead\software\HMI\CrudeMetalHead\src
+// >protoc --proto_path=.\ --java_out=.\ HmiServerMsg.proto
 
 // Follow the dos and donts: https://protobuf.dev/best-practices/dos-donts/
 
@@ -16,9 +16,10 @@ enum State {
   STATE_UNKNOWN = 0;
   STATE_IDLE = 1;
   STATE_PROCESS_RECIPE = 2;
-  STATE_HOME = 3;
-  STATE_ESTOP = 4;
-  STATE_ERROR = 5;
+  STATE_PROCESS_ACTION = 3;
+  STATE_HOME = 4;
+  STATE_ESTOP = 5;
+  STATE_ERROR = 6;
 }
 
 enum Action {

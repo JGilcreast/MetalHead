@@ -2,8 +2,8 @@
 // winget install protobuf
 // protoc --version # Ensure compiler version is 3+
 // Run:
-// cd C:\Users\User\Devel\MetalHead\software\test\interface-board-client-status-indicators\src\main\java\com\github\mibs510
-// >protoc --proto_path=.\ --java_out=.\StatusIndicators.proto
+// cd C:\Some\Path\To\MetalHead\software\HMI\CrudeMetalHead\src
+// >protoc --proto_path=.\ --java_out=.\ HmiClientMsg.proto
 
 // Follow the dos and donts: https://protobuf.dev/best-practices/dos-donts/
 

@@ -99,8 +99,6 @@ public class AsyncTCPClient {
                     debugLogConsumer.accept("Sending message: " + message.toString());
                     ByteBuffer buffer = ByteBuffer.allocate(256);
                     ByteBuffer.wrap(message.toByteArray());
-                    //ByteBuffer buffer = ByteBuffer.wrap(message.toByteArray());
-                    byte[] messageBuffer = message.toByteArray();
                     clientChannel.write(buffer);
                 }
             } catch (InterruptedException e) {
