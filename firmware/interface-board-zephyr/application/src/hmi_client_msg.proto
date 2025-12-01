@@ -20,30 +20,30 @@ syntax = "proto3";
 
 enum hmi_client_action_t {
   ACTION_UNKNOWN = 0;
-  ACTION_REPEAT_LAST_RESPONSE = 1;
-  ACTION_HEAD_OUT = 2;
-  ACTION_HEAD_IN = 3;
-  ACTION_TOOL_OUT = 4;
-  ACTION_HEAD_LIMIT = 5;
-  ACTION_HEAD_CW = 6;
-  ACTION_HEAD_CCW = 7;
-  ACTION_FEED_FORWARD = 8;
-  ACTION_FEED_REVERSE = 9;
-  ACTION_ESTOP = 10;
+  REPEAT_LAST_RESPONSE = 1;
+  HEAD_OUT = 2;
+  HEAD_IN = 3;
+  TOOL_OUT = 4;
+  HEAD_LIMIT = 5;
+  HEAD_CW = 6;
+  HEAD_CCW = 7;
+  FEED_FORWARD = 8;
+  FEED_REVERSE = 9;
+  ESTOP = 10;
 }
 
 enum bend_direction_t {
   BEND_DIRECTION_UNKNOWN = 0;
-  BEND_DIRECTION_CW = 1;
-  BEND_DIRECTION_CCW = 2;
+  CW = 1;
+  CCW = 2;
 }
 
 enum bar_size_t {
   BAR_SIZE_UNKNOWN = 0;
-  BAR_SIZE_NUM3_3_8 = 1;
-  BAR_SIZE_NUM4_1_2 = 2;
-  BAR_SIZE_NUM5_5_8 = 3;
-  BAR_SIZE_NUM6_3_4 = 4;
+  NUM3_3_8 = 1;
+  NUM4_1_2 = 2;
+  NUM5_5_8 = 3;
+  NUM6_3_4 = 4;
 };
 
 message angle_t {

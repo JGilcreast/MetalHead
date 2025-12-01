@@ -22,28 +22,29 @@ import "nanopb.proto";
 
 enum state_t {
     STATE_UNKNOWN = 0;
-    STATE_IDLE = 1;
-    STATE_PROCESS_RECIPE = 2;
-    STATE_HOME = 3;
-    STATE_ESTOP = 4;
-    STATE_ERROR = 5;
+    IDLE = 1;
+    PROCESS_RECIPE = 2;
+    PROCESS_ACTION = 3;
+    HOME = 4;
+    ESTOP = 5;
+    ERROR = 6;
 }
 
 enum action_t {
     ACTION_UNKNOWN = 0;
-    ACTION_SHEAR = 1;
-    ACTION_TOOL_OUT = 2;
-    ACTION_TOOL_IN = 3;
-    ACTION_FEED_FORWARD = 4;
-    ACTION_FEED_REVERSE = 5;
-    ACTION_HEAD_CW = 6;
-    ACTION_HEAD_CCW = 7;
-    ACTION_HEAD_OUT = 8;
-    ACTION_HEAD_IN = 9;
-    ACTION_SHEAR_RETRACT = 10;
-    ACTION_TOOL_RETRACT = 11;
-    ACTION_HEAD_RETRACT = 12;
-    ACTION_NONE = 13;
+    SHEAR = 1;
+    TOOL_OUT = 2;
+    TOOL_IN = 3;
+    FEED_FORWARD = 4;
+    FEED_REVERSE = 5;
+    HEAD_CW = 6;
+    HEAD_CCW = 7;
+    HEAD_OUT = 8;
+    HEAD_IN = 9;
+    SHEAR_RETRACT = 10;
+    TOOL_RETRACT = 11;
+    HEAD_RETRACT = 12;
+    NONE = 13;
 }
 
 message hmi_server_message_t {
@@ -112,8 +113,8 @@ message hmi_server_message_t {
 
 enum hmi_server_response_t {
   RESPONSE_UNKNOWN = 0;
-  RESPONSE_SUCCESS = 1;
-  RESPONSE_FAILURE = 2;
+  SUCCESS = 1;
+  FAILURE = 2;
 }
 
 message hmi_server_message {

@@ -138,9 +138,6 @@ void current_monitor_thread() {
 }
 
 void init_current_monitors() {
-  int err = 0;
-  struct sensor_value val;
-
   if (!device_is_ready(fused_gnd_curr_mon))
     LOG_ERR("FUSED_GND INA226 is not ready!");
   else {

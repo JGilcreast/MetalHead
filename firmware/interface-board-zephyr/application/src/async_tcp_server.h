@@ -189,7 +189,7 @@ void async_tcp_server_thread() {
 
 	LOG_INF("Starting async server on port %d", eeprom_data.port);
 
-	// Out local copy of the server message to the HMI
+	// Our local copy of the server message to the HMI
 	hmi_server_message hmi_server_msg_cpy;
 
 	while (1) {
@@ -267,7 +267,7 @@ error:
 					// When we are in here, we received something from the HMI client
 					// Figure out what they sent us and put into a processing queue (shape, actions, etc.)
 					int out_len;
-					const char *p;
+					// const char *p;
 					/*
 					 * We implement semi-async server, where reads are async, but writes
 					 * *can* be sync (blocking). Note that in majority of cases they expected

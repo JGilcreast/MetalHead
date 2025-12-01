@@ -38,7 +38,6 @@
 LOG_MODULE_REGISTER(MetalHead, LOG_LEVEL_DBG);
 
 // Custom includes
-#include "semaphores.h"
 #include "threads.h"
 #include "gpio_dt_specs.h"
 #include "queues.h"
@@ -52,10 +51,11 @@ LOG_MODULE_REGISTER(MetalHead, LOG_LEVEL_DBG);
 #include "init_gpio.h"
 #include "init_eeprom.h"
 #include "init_net.h"
+#include "shape_processor_thread.h"
 #include "version.h"
 
 
-void main(void)
+int main(void)
 {
   LOG_INF("MetalHead Interface Board Firmware v%d.%d.%d", MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION);
   LOG_INF("Build date: " __DATE__ " " __TIME__);
@@ -74,11 +74,6 @@ void main(void)
   init_gpio();
   init_net();
   init_current_monitors();
-
-  // Start the shape processing thread
-  shape_processor_tid = k_thread_create(&shape_processor_thread_data,
-    shape_processor_stack_area, K_THREAD_STACK_SIZEOF(shape_processor_stack_area),
-    shape_process_thread, NULL, NULL, NULL, -5, 0, K_NO_WAIT);
-  k_thread_name_set(shape_processor_tid, "shape_processor_thread");
+  init_shape_processor();
 }
 
