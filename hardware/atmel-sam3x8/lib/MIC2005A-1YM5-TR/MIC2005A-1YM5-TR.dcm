@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MIC2005A-1YM5-TR
+D Micrel MIC2005A-1YM5 TR, USB Power Switch, High Side, 275m, 2.5 V min., 5-Pin SOT-23
+K
+F http://ww1.microchip.com/downloads/en/DeviceDoc/mic20xx.pdf
+$ENDCMP
+#
+#End Doc Library

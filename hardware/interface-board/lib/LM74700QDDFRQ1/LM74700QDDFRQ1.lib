@@ -1,0 +1,29 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model LM74700QDDFRQ1
+#/13549686/1198243/2.50/8/3/Integrated Circuit
+DEF LM74700QDDFRQ1 IC 0 30 Y Y 1 F N
+F0 "IC" 1150 300 50 H V L CNN
+F1 "LM74700QDDFRQ1" 1150 200 50 H V L CNN
+F2 "SOT65P280X110-8N" 1150 100 50 H I L CNN
+F3 "https://www.ti.com/lit/ds/symlink/lm74700-q1.pdf?ts=1609880384188&ref_url=https%253A%252F%252Fwww.ti.com%252Fstore%252Fti%252Fen%252Fp%252Fproduct%252F%253Fp%253DLM74700QDBVRQ1%2526HQS%253DOCB-tistore-invf-storeinv-invf-store-findchips-wwe" 1150 0 50 H I L CNN
+F4 "3.2-V TO 65-V, 80-UA IQ AUTOMOTI" 1150 -100 50 H I L CNN "Description"
+F5 "1.1" 1150 -200 50 H I L CNN "Height"
+F6 "595-LM74700QDDFRQ1" 1150 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/LM74700QDDFRQ1?qs=eP2BKZSCXI5rqUa6Bh4vxQ%3D%3D" 1150 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Texas Instruments" 1150 -500 50 H I L CNN "Manufacturer_Name"
+F9 "LM74700QDDFRQ1" 1150 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X EN 1 0 0 200 R 50 50 0 0 P
+X GND 2 0 -100 200 R 50 50 0 0 P
+X N.C_1 3 0 -200 200 R 50 50 0 0 P
+X VCAP 4 0 -300 200 R 50 50 0 0 P
+X ANODE 5 1300 0 200 L 50 50 0 0 P
+X GATE 6 1300 -100 200 L 50 50 0 0 P
+X N.C_2 7 1300 -200 200 L 50 50 0 0 P
+X CATHODE 8 1300 -300 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1100 100 1100 -400 200 -400 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

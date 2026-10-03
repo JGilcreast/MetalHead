@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP APX811-31UG-7
+D DiodesZetex APX811-31UG-7, Voltage Supervisor, 2.5  5 V, Reset Input, 4-Pin SOT-143
+K
+F https://www.diodes.com//assets/Datasheets/APX811_812.pdf
+$ENDCMP
+#
+#End Doc Library

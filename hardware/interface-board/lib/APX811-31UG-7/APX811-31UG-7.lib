@@ -1,0 +1,25 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model APX811-31UG-7
+#/554945/1198243/2.50/4/2/Integrated Circuit
+DEF APX811-31UG-7 IC 0 30 Y Y 1 F N
+F0 "IC" 1450 300 50 H V L CNN
+F1 "APX811-31UG-7" 1450 200 50 H V L CNN
+F2 "SOT143" 1450 100 50 H I L CNN
+F3 "https://www.diodes.com//assets/Datasheets/APX811_812.pdf" 1450 0 50 H I L CNN
+F4 "DiodesZetex APX811-31UG-7, Voltage Supervisor, 2.5  5 V, Reset Input, 4-Pin SOT-143" 1450 -100 50 H I L CNN "Description"
+F5 "" 1450 -200 50 H I L CNN "Height"
+F6 "621-APX811-31UG-7" 1450 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/APX811-31UG-7?qs=uwE%252BXfKqZqSgAtkeUziWwA%3D%3D" 1450 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Diodes Incorporated" 1450 -500 50 H I L CNN "Manufacturer_Name"
+F9 "APX811-31UG-7" 1450 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X GND 1 0 0 200 R 50 50 0 0 P
+X ~RESET_(RESET) 2 0 -100 200 R 50 50 0 0 P
+X ~MR 3 1600 -100 200 L 50 50 0 0 P
+X VCC 4 1600 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1400 100 1400 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

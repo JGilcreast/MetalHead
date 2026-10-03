@@ -49,7 +49,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.508
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -78,7 +78,7 @@
         "duplicate_footprints": "warning",
         "extra_footprint": "warning",
         "footprint": "error",
-        "footprint_filters_mismatch": "ignore",
+        "footprint_filters_mismatch": "warning",
         "footprint_symbol_mismatch": "warning",
         "footprint_type_mismatch": "error",
         "hole_clearance": "error",
@@ -95,13 +95,13 @@
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
         "mirrored_text_on_front_layer": "warning",
-        "missing_courtyard": "ignore",
+        "missing_courtyard": "warning",
         "missing_footprint": "warning",
         "net_conflict": "warning",
         "nonmirrored_text_on_back_layer": "warning",
-        "npth_inside_courtyard": "ignore",
+        "npth_inside_courtyard": "warning",
         "padstack": "error",
-        "pth_inside_courtyard": "ignore",
+        "pth_inside_courtyard": "warning",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "error",
@@ -548,6 +548,7 @@
       "single_global_label": "ignore",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
+      "undefined_netclass": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"
@@ -585,15 +586,32 @@
         "clearance": 0.2032,
         "diff_pair_gap": 0.2032,
         "diff_pair_width": 0.2,
+        "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "USB2.0",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.1582,
         "via_diameter": 0.6,
         "via_drill": 0.4
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.762,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "W5500",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.2032,
+        "via_diameter": 0.6,
+        "via_drill": 0.4,
+        "wire_width": 6
       }
     ],
     "meta": {
@@ -601,41 +619,24 @@
     },
     "net_colors": null,
     "netclass_assignments": {
-      "/ATMEL SAM3X8/ATMEGA16U2-D+": [
-        "USB2.0"
+      "/WIZnet W5500 ENET PHY/RX-": [
+        "W5500"
       ],
-      "/ATMEL SAM3X8/ATMEGA16U2-D-": [
-        "USB2.0"
+      "/WIZnet W5500 ENET PHY/TD+": [
+        "W5500"
       ],
-      "/Output Connections/2D+": [
-        "USB2.0"
-      ],
-      "/Output Connections/2D-": [
-        "USB2.0"
-      ],
-      "/Output Connections/USBC-D+": [
-        "USB2.0"
-      ],
-      "/Output Connections/USBC-D-": [
-        "USB2.0"
-      ],
-      "/Pi Zero 2W SBC/2D+": [
-        "USB2.0"
-      ],
-      "/Pi Zero 2W SBC/2D-": [
-        "USB2.0"
-      ],
-      "/Pi Zero 2W SBC/D+": [
-        "USB2.0"
-      ],
-      "/Pi Zero 2W SBC/D-": [
-        "USB2.0"
+      "/WIZnet W5500 ENET PHY/TD-": [
+        "W5500"
       ]
     },
     "netclass_patterns": [
       {
         "netclass": "USB2.0",
         "pattern": "USB2.0"
+      },
+      {
+        "netclass": "W5500",
+        "pattern": "W5500"
       }
     ]
   },
@@ -644,7 +645,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "production/X2/pcb/",
+      "plot": "production/X3/pcb/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "production/X2/3D/MEP-MAXI-85V-1-REV-2-Interface-Board.stl",
@@ -797,7 +798,7 @@
       "workbook_filename": ""
     },
     "page_layout_descr_file": "",
-    "plot_directory": "production/X2/schematic/",
+    "plot_directory": "production/X3/schematic/",
     "space_save_all_events": true,
     "spice_adjust_passive_values": false,
     "spice_current_sheet_as_root": false,
@@ -824,7 +825,7 @@
     ],
     [
       "aa4b2848-91ce-4266-9ffd-7aea368fd32d",
-      "ATMEL SAM3X8"
+      "Arduino Due"
     ],
     [
       "d8505f04-b7ee-49c1-92a4-ffc5e5920f3b",
@@ -837,6 +838,14 @@
     [
       "c703015a-681e-444d-af04-ee4116351c07",
       "Signal Processing"
+    ],
+    [
+      "afd8486b-a079-48fb-b46e-22f5f5df91c7",
+      "Interrupt LEDs"
+    ],
+    [
+      "faf21077-195e-4cf8-8a49-0be3993f9fa3",
+      "WIZnet W5500 ENET PHY"
     ]
   ],
   "text_variables": {}

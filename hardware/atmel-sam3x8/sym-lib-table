@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "MIC2005A-1YM5-TR")(type "KiCad")(uri "${KIPRJMOD}/lib/MIC2005A-1YM5-TR/MIC2005A-1YM5-TR.kicad_sym")(options "")(descr ""))
+  (lib (name "TPD4S012DRYR")(type "KiCad")(uri "${KIPRJMOD}/lib/TPD4S012DRYR/TPD4S012DRYR.kicad_sym")(options "")(descr ""))
+  (lib (name "ATSAM3X8EA-AU")(type "KiCad")(uri "${KIPRJMOD}/lib/ATSAM3X8EA-AU/ATSAM3X8EA-AU.kicad_sym")(options "")(descr ""))
+  (lib (name "SODIMM_DDR4")(type "KiCad")(uri "${KIPRJMOD}/lib/SODIMM/DDR4/SODIMM_DDR4.kicad_sym")(options "")(descr ""))
+)
