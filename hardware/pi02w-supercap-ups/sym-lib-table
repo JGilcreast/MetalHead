@@ -1,0 +1,9 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "BQ24640RVAR")(type "KiCad")(uri "${KIPRJMOD}/lib/BQ24640RVAR/BQ24640RVAR.kicad_sym")(options "")(descr ""))
+  (lib (name "DMT6007LFG-7")(type "KiCad")(uri "${KIPRJMOD}/lib/DMT6007LFG/DMT6007LFG-7.kicad_sym")(options "")(descr ""))
+  (lib (name "LM74700QDDFRQ1")(type "KiCad")(uri "${KIPRJMOD}/lib/LM74700QDDFRQ1/LM74700QDDFRQ1.kicad_sym")(options "")(descr ""))
+  (lib (name "RASPBERRY_PI_ZERO_2_W")(type "KiCad")(uri "${KIPRJMOD}/lib/RASPBERRY_PI_ZERO_2_W/RASPBERRY_PI_ZERO_2_W.kicad_sym")(options "")(descr ""))
+  (lib (name "TVS2701DRBR")(type "KiCad")(uri "${KIPRJMOD}/lib/TVS2701DRBR/TVS2701DRBR.kicad_sym")(options "")(descr ""))
+  (lib (name "TPS55340RTER")(type "KiCad")(uri "${KIPRJMOD}/lib/TPS55340RTER/TPS55340RTER.kicad_sym")(options "")(descr ""))
+)

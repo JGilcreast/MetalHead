@@ -1,0 +1,9 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "BQ24640RVAR")(type "KiCad")(uri "${KIPRJMOD}/lib/BQ24640RVAR")(options "")(descr ""))
+  (lib (name "DMT6007LFG")(type "KiCad")(uri "${KIPRJMOD}/lib/DMT6007LFG")(options "")(descr ""))
+  (lib (name "LM74700QDDFRQ1")(type "KiCad")(uri "${KIPRJMOD}/lib/LM74700QDDFRQ1")(options "")(descr ""))
+  (lib (name "RASPBERRY_PI_ZERO_2_W")(type "KiCad")(uri "${KIPRJMOD}/lib/RASPBERRY_PI_ZERO_2_W")(options "")(descr ""))
+  (lib (name "TVS2701DRBR")(type "KiCad")(uri "${KIPRJMOD}/lib/TVS2701DRBR")(options "")(descr ""))
+  (lib (name "TPS55340RTER")(type "KiCad")(uri "${KIPRJMOD}/lib/TPS55340RTER")(options "")(descr ""))
+)

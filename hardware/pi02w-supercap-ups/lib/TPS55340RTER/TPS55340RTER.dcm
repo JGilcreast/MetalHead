@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPS55340RTER
+D TEXAS INSTRUMENTS - TPS55340RTER - DC/DC CONV, BOOST/SEPIC/FLYBACK, WQFN-16
+K
+F http://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=TPS55340&&fileType=pdf
+$ENDCMP
+#
+#End Doc Library
