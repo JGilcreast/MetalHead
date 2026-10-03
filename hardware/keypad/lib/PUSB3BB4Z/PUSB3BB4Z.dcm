@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PUSB3BB4Z
+D PUSB3BB4 - Extremely low capacitance bidirectional ESD protection diode array@en-us
+K
+F https://assets.nexperia.com/documents/short-data-sheet/PUSB3BB4_SDS.pdf
+$ENDCMP
+#
+#End Doc Library

@@ -6,4 +6,8 @@
   (lib (name "SN74HC14PWR")(type "KiCad")(uri "${KIPRJMOD}/lib/SN74HC14PWR")(options "")(descr ""))
   (lib (name "NXS0102")(type "KiCad")(uri "${KIPRJMOD}/lib/NXS0102")(options "")(descr ""))
   (lib (name "SN74HCS4075DR")(type "KiCad")(uri "${KIPRJMOD}/lib/SN74HCS4075DR")(options "")(descr ""))
+  (lib (name "DMT6007LFG")(type "KiCad")(uri "${KIPRJMOD}/lib/DMT6007LFG")(options "")(descr ""))
+  (lib (name "LM74700QDDFRQ1")(type "KiCad")(uri "${KIPRJMOD}/lib/LM74700QDDFRQ1")(options "")(descr ""))
+  (lib (name "SSM6K518NU")(type "KiCad")(uri "${KIPRJMOD}/lib/SSM6K518NU")(options "")(descr ""))
+  (lib (name "PUSB3BB4Z")(type "KiCad")(uri "${KIPRJMOD}/lib/PUSB3BB4Z")(options "")(descr ""))
 )

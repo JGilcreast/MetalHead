@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -469,6 +469,7 @@
       "single_global_label": "ignore",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
+      "undefined_netclass": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"
@@ -515,7 +516,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "production/X2/pcb/",
+      "plot": "production/X3/pcb/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "production/X2/3D/keypad.step",
@@ -682,7 +683,7 @@
       "workbook_filename": ""
     },
     "page_layout_descr_file": "",
-    "plot_directory": "production/X2/schematic/",
+    "plot_directory": "production/X3/schematic/",
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",

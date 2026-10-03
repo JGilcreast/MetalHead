@@ -1,0 +1,226 @@
+(footprint "DMP4013LFG7"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "POWERDI®3333-8")
+	(tags "MOSFET (N-Channel)")
+	(property "Reference" "Q"
+		(at 0 -3.75 0)
+		(layer "F.SilkS")
+		(uuid "f194b04c-988b-4a4c-ad58-84b77fd7d8a4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "DMP4013LFG7"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "138f2b34-c803-42c7-b446-c45ecc6f5eb1")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.diodes.com/assets/Datasheets/DMT6007LFG.pdf"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e0756297-fd52-4f3b-84a2-a1b6904dca7b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "MOSFETs 60V N-Ch Enh FET 20Vgss 80A 62.5W"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a591ccc1-053c-4a2f-b299-4d1b8baf1a1e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start 1.8 -2.05)
+		(end -1.55 -2.05)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "bb004780-de53-441d-84ef-56f0a879df37")
+	)
+	(fp_line
+		(start 1.8 1.3)
+		(end -1.55 1.3)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "16ef08a0-5072-4e5c-b080-48a9d1a7f909")
+	)
+	(fp_arc
+		(start -2.05 0.8)
+		(mid -2 0.75)
+		(end -1.95 0.8)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "5dae47d8-5df0-4b58-a6af-143ab2f3b3d4")
+	)
+	(fp_arc
+		(start -1.95 0.8)
+		(mid -2 0.85)
+		(end -2.05 0.8)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "971b1a18-bb59-4ece-8fc5-31c51393a814")
+	)
+	(fp_rect
+		(start -2 -2.25)
+		(end 2.25 1.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "ef414f6a-8c3f-464d-995f-f9e18f54116f")
+	)
+	(fp_line
+		(start -1.55 -2.05)
+		(end 1.8 -2.05)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "9d400ca5-b1b1-4b00-9199-433faae74499")
+	)
+	(fp_line
+		(start -1.55 1.3)
+		(end -1.55 -2.05)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "95060984-effe-4c71-b734-dfac8b494c05")
+	)
+	(fp_line
+		(start 1.8 -2.05)
+		(end 1.8 1.3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "9fc10b23-6893-415d-83d2-48ae024feec7")
+	)
+	(fp_line
+		(start 1.8 1.3)
+		(end -1.55 1.3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "5e49518c-b7e6-4308-ab8f-670b57e93c04")
+	)
+	(fp_text user "${VALUE}"
+		(at -0.5 -0.25 90)
+		(layer "F.Fab")
+		(uuid "33ec0148-84ab-42fe-90d6-08578fe638b0")
+		(effects
+			(font
+				(size 0.5 0.35)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.375 0.6 270)
+		(size 0.42 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "171a46f2-83fb-431d-b218-93350f949dab")
+	)
+	(pad "2" smd rect
+		(at 0.5 -0.375)
+		(size 1.55 2.37)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "07d7a891-5810-48aa-bf20-6d7b6d91b872")
+	)
+	(pad "2" smd rect
+		(at 1.625 -1.35 270)
+		(size 0.42 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "8704d00d-8d9a-43b9-a991-68b3ba4bdfb9")
+	)
+	(pad "2" smd rect
+		(at 1.625 -0.7 270)
+		(size 0.42 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "72ed5a30-198c-4536-ac68-0c463f77b1aa")
+	)
+	(pad "2" smd rect
+		(at 1.625 -0.05 270)
+		(size 0.42 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "027040a9-73eb-4c86-9819-ea498d05d39e")
+	)
+	(pad "2" smd rect
+		(at 1.625 0.6 270)
+		(size 0.42 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "4623f96c-5716-49cf-b176-7ef8a92544c6")
+	)
+	(pad "3" smd rect
+		(at -1.375 -1.35 270)
+		(size 0.42 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "079b8ed6-0013-464a-b7fa-b066752128cf")
+	)
+	(pad "3" smd rect
+		(at -1.375 -0.7 270)
+		(size 0.42 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "bd03a5ec-f5e1-4e67-aab7-82b025c2e812")
+	)
+	(pad "3" smd rect
+		(at -1.375 -0.05 270)
+		(size 0.42 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "c6bee70f-478b-494d-aa77-6f944fcda5cc")
+	)
+	(embedded_fonts no)
+	(model "DMT6007LFG-7.stp"
+		(offset
+			(xyz 0.1 0.37 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -0)
+		)
+	)
+)
