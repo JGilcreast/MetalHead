@@ -2,13 +2,14 @@
 #include "InterruptEnums.h"
 #include <at24c256.h> // AT24C by Stefan
 #include <cppQueue.h> // Queue by SMFSW
+#include <SPI.h>
+#include <Ethernet.h>
 
 // Global objects and variables that ISRs and loop can access
 // Interface interface;
 AT24C256 eprom(AT24C_ADDRESS_0);
 cppQueue q(sizeof(Interrupt), 512, FIFO, true);
 int interruptCount = 1;
-
 
 struct Person{
   char firstName[16];
@@ -101,6 +102,8 @@ void setup() {
   pinMode(AUTO_BUTTON, INPUT);
   pinMode(ESTOP, INPUT);
   pinMode(FUSE, INPUT);
+  pinMode(AUX_ONE, INPUT);
+  pinMode(AUX_TWO, INPUT);
 
   // Turn off all outputs by default
   digitalWrite(SHEAR_CUT, LOW);
@@ -115,6 +118,9 @@ void setup() {
   digitalWrite(HEAD_IN, LOW);
 
   // Setup interrupts for inputs at the rising edge
+
+  attachInterrupt(digitalPinToInterrupt(AUX_ONE), interruptAux1, FALLING); // Proximity sensor, normally high
+  // attachInterrupt(digitalPinToInterrupt(AUX_TWO), interruptAux2, FALLING);
   attachInterrupt(digitalPinToInterrupt(ENCODER_FEED_SET), interruptEncoderFeedSetRising, RISING);
   attachInterrupt(digitalPinToInterrupt(ENCODER_FEED_RESET), interruptEncoderFeedResetRising, RISING);
   attachInterrupt(digitalPinToInterrupt(ENCODER_BEND_SET), interruptEncoderBendSetRising, RISING);
@@ -129,7 +135,7 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(PROXIMITY_HEAD_LIMIT), interruptProximityHeadLimitRising, RISING);
   attachInterrupt(digitalPinToInterrupt(PROXIMITY_HEAD_CW), interruptProximityHeadCwRising, RISING);
   attachInterrupt(digitalPinToInterrupt(PROXIMITY_HEAD_CCW), interruptProximityHeadCcwRising, RISING);
-  attachInterrupt(digitalPinToInterrupt(AUTO_BUTTON), interruptAutoButtonRising, RISING);
+  attachInterrupt(digitalPinToInterrupt(AUTO_BUTTON), interruptAutoButtonRising, RISING);; // ESTOP, normally low
 
   // Setup interrupts for inputs on the falling edge.
   // Sometimes we need to know when a sensor deactivates, i.e. to confirm if the tool head actually travelled in the opposite direction
@@ -139,12 +145,28 @@ void setup() {
   // When FUSE is HIGH, FUSE is not blown (normal operation)
   // When FUSE is LOW, FUSE is blown (alert HMI so operator can diagnose)
   attachInterrupt(digitalPinToInterrupt(FUSE), interruptFuseFalling, FALLING);
-  attachInterrupt(digitalPinToInterrupt(ESTOP), interruptEstopChange, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(ESTOP), interruptEstopChange, FALLING);
 
   // Let's check to see if the machine is homed correctly.
   // Someone may have moved the head or tool manually in between startups that we were not aware of.
   // Think of this as homing a 3D printer. We might consider using this inside interface.feed() before making recipes in the main loop
   // interface.home(); // Check each sensor, if it's high, trigger the solenoid to home it
+
+  Ethernet.init(10);  // Most Arduino shields
+
+  auto link = Ethernet.linkStatus();
+  Serial.print("Link status: ");
+  switch (link) {
+    case Unknown:
+      Serial.println("Unknown");
+      break;
+    case LinkON:
+      Serial.println("ON");
+      break;
+    case LinkOFF:
+      Serial.println("OFF");
+      break;
+  }
 }
 
 void loop() {
@@ -273,6 +295,10 @@ void loop() {
       Serial.println("NORMAL_OPERATION");
     if (interrupt == Interrupt::FUSE_INT)
       Serial.println("FUSE");
+    if (interrupt == Interrupt::AUX_ONE_INT)
+      Serial.println("AUX1");
+    if (interrupt == Interrupt::AUX_TWO_INT)
+      Serial.println("AUX2");
     interruptCount++;
   }
 
@@ -390,4 +416,17 @@ void interruptFuseFalling(){
   // The main loop code should send a StopEvent to the HMI
   // We also need to implement something at startup of the machine to check if the fuse has blown and send a StopEvent to the HMI.
   q.push(&fuseInterrupt); // Send to queue for serial debugging
+}
+
+void interruptAux1(){
+  // Proximity Sensor, normally high
+  if (digitalRead(AUX_ONE) == LOW)
+    q.push(&aux1Interrupt); // Send to queue for serial debugging
+}
+
+void interruptAux2(){
+  // ESTOP, normally low
+  if (digitalRead(AUX_TWO) == LOW) // This prevents the first interrupt at startup.
+                                   // We still see debouncing on release of ESTOP for normal operation sporadically.
+    q.push(&aux2Interrupt); // Send to queue for serial debugging
 }

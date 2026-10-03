@@ -28,6 +28,8 @@
 #define AUTO_BUTTON 46
 #define ESTOP 47
 #define FUSE 48
+#define AUX_ONE 13
+#define AUX_TWO 9
 
 // HMI
 #define HMI_TX 18

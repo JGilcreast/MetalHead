@@ -16,7 +16,9 @@ enum Interrupt {
   AUTO_BUTTON_INT,
   ESTOP_INT,
   NORMAL_OPERATION_INT,
-  FUSE_INT
+  FUSE_INT,
+  AUX_ONE_INT,
+  AUX_TWO_INT
 };
 
 Interrupt encoderFeedSetInterrupt = Interrupt::ENCODER_FEED_SET_INT;
@@ -37,3 +39,5 @@ Interrupt autoButtonInterrupt = Interrupt::AUTO_BUTTON_INT;
 Interrupt eStopInterrupt = Interrupt::ESTOP_INT;
 Interrupt normalOperationInterrupt = Interrupt::NORMAL_OPERATION_INT;
 Interrupt fuseInterrupt = Interrupt::FUSE_INT;
+Interrupt aux1Interrupt = Interrupt::AUX_ONE_INT;
+Interrupt aux2Interrupt = Interrupt::AUX_TWO_INT;
